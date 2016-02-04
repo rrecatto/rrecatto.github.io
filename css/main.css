@@ -1,0 +1,8 @@
+.navUL {
+    list-style-type: none;
+}
+
+.navLI {
+    display: inline;
+    padding: 2px;
+}
