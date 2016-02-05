@@ -20,23 +20,25 @@
           </div>
       </nav>
       
-      
-    <p>
-    Enter the time you need to work<br>
-    </p>
+    <div class="createContent">
 
-    <form action="action_page.php">
-      <div>
-                <h2>Create Schedule</h2>
-                <label for="beginTime">Begin at:</label>
-                <input type="time" id="inputBtime" class="form-control" placeholder="Time" required autofocus>
-                <br>
-                <label for="endTime">End at:</label>
-                <input type="time" id="inputETime" class="form-control" placeholder="Time" required>
-                <input type="submit">
 
-            </div>
-    </form>
+          <div class="createScheduleForm">
+            <form action="action_page.php">
+              <div>
+                        <h1>Create Schedule</h1>
+                        <p>Enter the time you need to work...</p><br>
+                        <label for="beginTime">Begin at:</label>
+                        <input type="time" id="inputBtime" class="form-control" placeholder="Time" required autofocus>
+                        <br>
+                        <label for="endTime">End at:</label>
+                        <input type="time" id="inputETime" class="form-control" placeholder="Time" required><br>
+                        <button class="btn btn-md btn-primary" type="submit">Submit</button>
+
+                    </div>
+            </form>
+          </div>
+      </div>
       
       
     <!--Bootstrap-->
