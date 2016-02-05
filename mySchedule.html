@@ -1,15 +1,63 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>uDown</title>
+    <title>View Schedule</title>
     <!-- Link Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet" type="text/css"/>
-  </head>
+    <!-- TODO: put this into stylesheet -->
+    <style>
+    .eventblock {
+    margin: auto;
+    width: 70%;
+    border: 1px solid #73AD21;
+    padding: 10px;
+    }
+    
+    
+    .day {
+    text-align:center;
+    margin: auto;
+    width: 30%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+    }
+    .times {
+    padding-right: 20px
+    }
+    
+    .taken {
+    background-color: #800040;
+    width: 99%;
+    }
+    
+    ul#tabs { display:table; table-layout: fixed; margin-bottom: -1px; margin:auto; width: 90%; padding: 0px}
+    ul#tabs li { display: table-cell;
+    text-align:center;
+    border: 1px;
+    background-color: #dedbde; 
+    border: 1px solid #c9c3ba; 
+    border-bottom: none;
+    }
+    
+    ul#tabs li a { color: #42454a; text-decoration: none; }
+    ul#tabs li a.selected { color: #000; background-color: #fff0ee; font-weight: bold;}
+    ul#tabs li :hover { background-color: #f1f0ee; }
+    div.tabContent { border: 1px solid #c9c3ba; padding: 0.5em; background-color: #f1f0ee; margin: auto; width: 90%;}
+    div.tabContent.hide { display: none; }
+    
+   
+    </style>
+</head>
+  
+  
   <body>
-    <nav class="navbar navbar-default">
+  
+  
+  
+  <nav class="navbar navbar-default">
           <div class="container-fluid">
               <ul class="navUL">
                   <li class="navLI"><a href="createSchedule.html">Create</a></li>
@@ -19,10 +67,40 @@
               </ul>
           </div>
       </nav>
-      
-    
+    <div id ="tabdiv">  
+    <ul id="tabs">
+        <li><a href="#mon">Mon</a></li>
+        <li><a href="#tue">Tue</a></li>
+        <li><a href="#wed">Wed</a></li>
+        <li><a href="#thu">Thu</a></li>
+        <li><a href="#fri">Fri</a></li>
+        <li><a href="#sat">Sat</a></li>
+        <li><a href="#sun">Sun</a></li>
+    </ul>
+    </div>
+    <div class = "tabContent">
+    <div id = "eventblock" class = "eventblock">
+    <!--
+    <table border = "1" id="times">
+        <tr>
+            <div class="eventblock">
+                Event Name <br />
+                5:00 - 6:00 <br />
+            </div>
+        </tr>
+        <tr>
+            <div class="eventblock">
+                Event Name <br />
+                5:00 - 6:00 <br />             
+            </div>
+        </tr>
+    </table>
+    -->
+    </div>
+    </div>
     <!--Bootstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/mySchedule.js"></script>
   </body>
 </html>
