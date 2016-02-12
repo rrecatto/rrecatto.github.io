@@ -20,3 +20,7 @@ img {
     max-width: 80%;
     height: auto;
 }
+
+#navbar {
+    font-size: 12px;
+}
