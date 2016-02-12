@@ -48,9 +48,6 @@
     div.tabContent { border: 1px solid #c9c3ba; padding: 0.5em; background-color: #f1f0ee; margin: auto; width: 90%;}
     div.tabContent.hide { display: none; }
     
-    
-    
-
 
 
 .nav-justified > li {
@@ -65,20 +62,53 @@
     border: 1px solid blue;
     border-radius: 10px;
     padding: 10px;
+    margin-bottom: 10px;
+}
+.tab-pane > td {
+    overflow: hidden;
+    height: 500px;
 }
 .time-table{
     width:100%;
 }
+.time-table td {
+    border-left:solid 10px transparent;
+}
 .time{
-    width: 10%;
-    border-right: rgba(30, 30, 30, .3);
+    width: 15%;
+    border-right: rgba(255, 30, 30, .9);
+    text-align: right;
+    margin-right: 7px;
+    white-space:nowrap;
     
 }
 .line { 
-    width:90%;
-    border-top: 1px solid green;
+    width:100%;
+    margin-left: 5px;
+    border-top: 1px solid;
+    border-color: rgba(140, 140, 140, .5);
 }
-  
+.top-of-block {
+    border-radius: 10px 10px 0px 0px;
+}
+.bottom-of-block {
+    border-radius: 0px 0px 10px 10px;
+}  
+
+.stack-color0 {
+    position: absolute;
+    z-index:2;
+    width:10em;
+    padding-top:1px;
+    background-color: rgba(255,0,0,.3);
+}
+.stack-color1 {
+    position: absolute;
+    z-index:3;
+    width:10em;
+    padding-top:1px;
+    background-color: rgba(0,0,255,.3);
+}
 
     </style>
 </head>
@@ -97,7 +127,8 @@
     </nav>
   
   
- <div class = "container">
+<div class = "container">
+    <!-- days of the week tabs -->
     <ul class ="nav nav-pills nav-justified">
             <li  class="active"><a data-toggle="pill" href="#monday" id="mon-tab">M</a></li>
             <li><a data-toggle="pill" href="#tuesday" id="tue-tab">T</a></li>
@@ -107,62 +138,32 @@
             <li><a data-toggle="pill" href="#saturday" id="sat-tab">Sa</a></li>
             <li><a data-toggle="pill" href="#sunday" id="sun-tab">Su</a></li>
     </ul>
-    <!-- 30 minute time slots -->
-    <div class = "tab-content">
-        <div id="monday" class="tab-pane fade in active">
-            <table class = "time-table">
-                <tr><td class = "time" rowspan="2">7</td> 
-                    <td>&nbsp</td></tr>
-                    <tr><td class="line" id="t0">7</td></tr>
-                <tr><td class = "time" rowspan="2">8</td>
-                    <td id="t1">730</td></tr>
-                    <tr><td class="line" id="t2">8</td></tr>
-                <tr><td class = "time" rowspan="2">9</td>
-                    <td id="t3">830</td></tr>
-                    <tr><td class="line" id="t4">9</td></tr>
-                <tr><td class = "time" rowspan="2">10</td>
-                    <td id="t5">930</td></tr>
-                    <tr><td class="line" id="t6">10</td></tr>
-                <tr><td class = "time" rowspan="2">11</td>
-                    <td id="t7">1030</td></tr>
-                    <tr><td class="line" id="t8">11</td></tr>
-                <tr><td class = "time" rowspan="2">12</td>
-                    <td id="t9">1130</td></tr>
-                    <tr><td class="line" id="t10">12</td></tr>
-                <tr><td class = "time" rowspan="2">1</td>
-                    <td id="t11">1230</td></tr>
-                    <tr><td class="line" id="t12" >1</td></tr>
-                <tr><td class = "time" rowspan="2">2</td>
-                    <td id="t13">130</td></tr>
-                    <tr><td class="line" id="t14">2</td></tr>
-                <tr><td class = "time" rowspan="2">3</td>
-                    <td id="t15">230</td></tr>
-                    <tr><td class="line" id="t16">3</td></tr>
-                <tr><td class = "time" rowspan="2">4</td>
-                    <td id="t17">330</td></tr>
-                    <tr><td class="line" id="t18">4</td></tr>
-                <tr><td class = "time" rowspan="2">5</td>
-                    <td id="t19">430</td></tr>
-                    <tr><td class="line" id="t20">5</td></tr>
-                <tr><td class = "time" rowspan="2">6</td>
-                    <td id="t21">530</td></tr>
-                    <tr><td class="line" id="t22">6</td></tr>
-                <tr><td class = "time" rowspan="2">7</td>
-                    <td id="t23">630</td></tr>
-                    <tr><td class="line">&nbsp;</td></tr>
-            </table>
-        </div>
-        
-        <div id="tuesday"class="tab-pane fade">0</div>
-        <div id="wednesday"class="tab-pane fade">0</div>
-        <div id="thursday"class="tab-pane fade">0</div>
-        <div id="friday"class="tab-pane fade">0</div>
-        <div id="saturday"class="tab-pane fade">0</div>
-        <div id="sunday"class="tab-pane fade">0</div>
-
-    
+    <!-- tab content -->
+    <div <div ng-app="schedule" class="tab-content">
+        <div id="monday" class="tab-pane fade in active"></div>
+        <div id="tuesday"class="tab-pane fade" schedule-template></div>
+        <div id="wednesday"class="tab-pane fade" schedule-template></div>
+        <div id="thursday"class="tab-pane fade" schedule-template></div>
+        <div id="friday"class="tab-pane fade" schedule-template></div>
+        <div id="saturday"class="tab-pane fade" schedule-template></div>
+        <div id="sunday"class="tab-pane fade" schedule-template></div>
     </div>
 </div>
+
+<!-- handlebars template -->
+<script id="table-template" type="text/x-handlebars-template">
+                <div id="content">
+                <table class = 'time-table'>
+                {{#each timeSlots}}
+                <tr><td class='time' rowspan='2'>{{timeLabel}}</td>
+                    <td id='{{timeIDAbove}}'>{{{timeContentAbove}}}</td></tr>
+                    <tr><td class='line' id='{{timeIDBelow}}'>{{timeContentBelow}}</td></tr>
+                {{/each}}
+                </table>
+                    
+
+</script>
+
 
      <!--
     <div id = "eventblock" class = "tab-pane fade active in">
@@ -186,9 +187,12 @@
     -->
     
 
-    <!--Bootstrap-->
+    <!--js libraries : may want to host these instead of linking-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/handlebars-v4.0.5.js"></script>
+    <!--js-->
+    <script src="js/table.js"></script>
     <script src="js/mySchedule.js"></script>
   </body>
 </html>
