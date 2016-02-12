@@ -10,7 +10,7 @@ function initializePage() {
                   <li class="navLI"><a href="createSchedule.html">Create</a></li>\
                   <li class="navLI"><a href="combineSchedule.html">Combine</a></li>\
                   <li class="navLI"><a href="mySchedule.html">Name</a></li>\
-                  <li class="navLI"><button\ onclick="window.location="http://rrecatto.github.io;" type="button" class="navbar-btn">Log Out</button></li>\
+                  <li class="navLI"><button onclick="window.location="http://rrecatto.github.io;" type="button" class="navbar-btn">Log Out</button></li>\
               </ul>\
           </div>\
       </nav>';
