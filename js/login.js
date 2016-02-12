@@ -23,14 +23,9 @@ function signUpUser() {
         console.log("here2");
         $('#regError').html('<p style="color:red;text-align:center;">ERROR: PASSWORDS DO NOT MATCH</p>');
     }
-    else {
-        
-        var user = { 
-            "email": userName,
-            "pw": passWord
-        }
-        
-        sessionStorage.setItem("user", user);
+    else {      
+        sessionStorage.user = userName;
+        sessionStorage.pw = passWord;
         
         window.location.href = 'rrecatto.github.io';
     }
@@ -51,7 +46,7 @@ function authorizeLogin() {
     else if(user==null) {
         $('#logError').html('<p style="color:red;text-align:center;">ERROR: EITHER USERNAME OR PASSWORD INCORRECT (no users)</p>');
     }
-    else if(userName!=user['email'] || passWord!=user['pw']){
+    else if(userName!=sessionStorage.user || passWord!=sessionStorage.pw){
         $('#logError').html('<p style="color:red;text-align:center;">ERROR: EITHER USERNAME OR PASSWORD INCORRECT</p>');
     }
     else {
