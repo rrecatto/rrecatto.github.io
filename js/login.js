@@ -51,7 +51,7 @@ function authorizeLogin() {
         $('#logError').html('<p style="color:red;text-align:center;">ERROR: EITHER USERNAME OR PASSWORD INCORRECT</p>');
     }
     else {
-        window.location.href = 'rrecatto.github.io/mySchedule';
+        window.location.href = '/mySchedule';
     }
     
            
