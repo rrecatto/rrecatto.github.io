@@ -16,6 +16,10 @@ img {
     padding: 20px;
 }
 
+.combineContainer {
+    padding: 20px;
+}
+
 .createScheduleForm {
     max-width: 80%;
     height: auto;
