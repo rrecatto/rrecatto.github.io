@@ -2,18 +2,18 @@ var timeContentDebug = [{timeIDAbove: "this-is-empty",
                       timeContentAbove: "&nbsp;", 
                       timeLabel: "7:00 Am",
                       timeIDBelow: "t0", 
-                      timeContentBelow: "7"
+                      timeContentBelow: "7:00"
                       },
                       
                       {timeIDAbove: "t1", 
-                      timeContentAbove: "730", 
+                      timeContentAbove: "7:30", 
                       timeLabel: "8:00 Am",
                       timeIDBelow: "t2", 
-                      timeContentBelow: "8"
+                      timeContentBelow: "8:00"
                       },
                       
                       {timeIDAbove: "t3", 
-                      timeContentAbove: "830", 
+                      timeContentAbove: "8:30", 
                       timeLabel: "9:00 Am",
                       timeIDBelow: "t4", 
                       timeContentBelow: "9"
@@ -108,108 +108,155 @@ var timeContentDebug = [{timeIDAbove: "this-is-empty",
                       
                       
 var timeContent = [{timeIDAbove: "this-is-empty", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "&nbsp;", 
                       timeLabel: "7:00 Am",
                       timeIDBelow: "t0", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: " "
                       },
                       
                       {timeIDAbove: "t1", 
-                      timeContentAbove:"placeholder", 
+                      timeContentAbove:" ", 
                       timeLabel: "8:00 Am",
                       timeIDBelow: "t2", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t3", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "9:00 Am",
                       timeIDBelow: "t4", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t5", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "10:00 Am",
                       timeIDBelow: "t6", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t7", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "11:00 Am",
                       timeIDBelow: "t8", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t9", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "12:00 Pm",
                       timeIDBelow: "t10", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t11", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "1:00 Pm",
                       timeIDBelow: "t12", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t13", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "2:00 Pm",
                       timeIDBelow: "t14", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t15", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "3:00 Pm",
                       timeIDBelow: "t16", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t17", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "4:00 Pm",
                       timeIDBelow: "t18", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t19", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "5:00 Pm",
                       timeIDBelow: "t20", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       {timeIDAbove: "t21", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "6:00 Pm",
                       timeIDBelow: "t22", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       {timeIDAbove: "t23", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "7:00 Pm",
                       timeIDBelow: "t24", 
-                      timeContentBelow: "placeholder"
+                      timeContentBelow: "  "
                       },
                       {timeIDAbove: "t25", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "8:00 Pm",
                       timeIDBelow: "t26", 
-                      timeContentBelow: "placeholder"},
+                      timeContentBelow: "  "},
                       
                       {timeIDAbove: "t27", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "9:00 Pm",
                       timeIDBelow: "t28", 
-                      timeContentBelow: "placeholder"},
+                      timeContentBelow: "  "},
                       
                       {timeIDAbove: "t29", 
-                      timeContentAbove: "placeholder", 
+                      timeContentAbove: "  ", 
                       timeLabel: "10:00 Pm",
                       timeIDBelow: "t30", 
-                      timeContentBelow: "placeholder"},
+                      timeContentBelow: "  "},
                       ];
+
+//prototype of html layout of table
+/*
+           var timeHtml = "<table class = 'time-table'> \
+                <tr><td class = 'time' rowspan='2'>7</td> \
+                    <td>&nbsp</td></tr> \
+                    <tr><td class='line' id='t0'>7</td></tr> \
+                <tr><td class = 'time' rowspan='2'>8</td> \
+                    <td id='t1'>730</td></tr> \
+                    <tr><td class='line' id='t2'>8</td></tr>\
+                <tr><td class = 'time' rowspan='2'>9</td>\
+                    <td id='t3'>830</td></tr>\
+                    <tr><td class='line' id='t4'>9</td></tr>\
+                <tr><td class = 'time' rowspan='2'>10</td>\
+                    <td id='t5'>930</td></tr>\
+                    <tr><td class='line' id='t6'>10</td></tr>\
+                <tr><td class = 'time' rowspan='2'>11</td>\
+                    <td id='t7'>1030</td></tr>\
+                    <tr><td class='line' id='t8'>11</td></tr>\
+                <tr><td class = 'time' rowspan='2'>12</td>\
+                    <td id='t9'>1130</td></tr>\
+                    <tr><td class='line' id='t10'>12</td></tr>\
+                <tr><td class = 'time' rowspan='2'>1</td>\
+                    <td id='t11'>1230</td></tr>\
+                    <tr><td class='line' id='t12' >1</td></tr>\
+                <tr><td class = 'time' rowspan='2'>2</td>\
+                    <td id='t13'>130</td></tr>\
+                    <tr><td class='line' id='t14'>2</td></tr>\
+                <tr><td class = 'time' rowspan='2'>3</td>\
+                    <td id='t15'>230</td></tr>\
+                    <tr><td class='line' id='t16'>3</td></tr>\
+                <tr><td class = 'time' rowspan='2'>4</td>\
+                    <td id='t17'>330</td></tr>\
+                    <tr><td class='line' id='t18'>4</td></tr>\
+                <tr><td class = 'time' rowspan='2'>5</td>\
+                    <td id='t19'>430</td></tr>\
+                    <tr><td class='line' id='t20'>5</td></tr>\
+                <tr><td class = 'time' rowspan='2'>6</td>\
+                    <td id='t21'>530</td></tr>\
+                    <tr><td class='line' id='t22'>6</td></tr>\
+                <tr><td class = 'time' rowspan='2'>7</td>\
+                    <td id='t23'>630</td></tr>\
+                    <tr><td class='line'>&nbsp;</td></tr></table> "
+*/           
+                      
+                      
+                      
