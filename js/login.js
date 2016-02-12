@@ -27,7 +27,7 @@ function signUpUser() {
         sessionStorage.user = userName;
         sessionStorage.pw = passWord;
         
-        window.location.href = '';
+        window.location.href = 'rrecatto.github.io';
     }
         
 }
@@ -51,7 +51,7 @@ function authorizeLogin() {
         $('#logError').html('<p style="color:red;text-align:center;">ERROR: EITHER USERNAME OR PASSWORD INCORRECT</p>');
     }
     else {
-        window.location.href = 'mySchedule';
+        window.location.href = 'rrecatto.github.io/mySchedule';
     }
     
            
