@@ -14,35 +14,37 @@
     <div class="createContent">
 
 
-          <div class="createScheduleForm">        
-              <div>
-                        <h1>Create Schedule</h1>
-                        <p>Enter the time you need to work...</p><br>
-                        <label for="SelectDay">Select Day</label>
-                        <div class="nav nav-pills left">
-                          <li class="dropdown active span8">
-                          <a class="dropdown-toggle" id="inp_impact" data-toggle="dropdown">
-                          <i class="icon icon-envelope icon-white"></i>&nbsp;<span id="dropdown_title">Select</span><span class="caret"></span></a>
-                          <ul id="divNewNotifications" class="dropdown-menu">
-                          <li><a>Sunday</a></li> 
-                          <li><a>Monday</a></li>       
-                          <li><a>Tuesday</a></li>
-                          <li><a>Wednesday</a></li>
-                          <li><a>Thursday</a></li> 
-                          <li><a>Friday</a></li>
-                          <li><a>Saturday</a></li>                              
-                    </ul>
-                </li>
-            </div>
-                        <label for="beginTime">Begin at:</label>
-                        <input type="time" id="inputBTime" class="form-control" placeholder="Time" required autofocus>
+          <div class="createScheduleForm">       
+                <h1>Create Schedule</h1>
+                    <p>Enter the time you need to work:</p>
+                    <br>
+                    
+                    <form id="scheduleForm" name="scheduleForm" action="" method="POST">
+                        <div class="form-group">
+                        <select name="day" id="selectDay"> <!--bootstrap selects dont work on mobile -->
+                            <option value="mon">Monday</option>
+                            <option value="tue">Tuesday</option>
+                            <option value="wed">Wednesday</option>
+                            <option value="thu">Thursday</option>
+                            <option value="fri">Friday</option>
+                            <option value="sat">Saturday</option>
+                            <option value="sun">Sunday</option>
+                        </select>
+                        </div>
+                        <br>
+                        <label for="startTime">Begin at:</label>
+                        <input type="time" id="startTime" class="form-control" step="1800" value="14:00" name="start" required autofocus>
                         <br>
                         <label for="endTime">End at:</label>
-                        <input type="time" id="inputETime" class="form-control" placeholder="Time" required><br>
-                        <button class="btn btn-md btn-primary"  id = "submitButn" >Submit</button>
-                        <button class="btn btn-md btn-primary" type="cancel" id = "cancelButn"  onclick="window.location='http://rrecatto.github.io/mySchedule';">Cancel</button>
+                        <input type="time" id="endTime" class="form-control" name="end" step="1800" value="15:00" required>
+                        <br>
+                        <input type="button" class="btn btn-primary" id="submitButton" value="Submit" onclick="validateForm();">
+                        
+                        <button class="btn btn-md btn-primary" type="cancel" id ="cancelButn"  onclick="window.location='http://rrecatto.github.io/mySchedule';">Cancel</button>
+                        
+                    </form>
+                   
 
-                    </div>
           </div>
       </div>
       
