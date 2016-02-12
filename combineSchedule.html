@@ -9,20 +9,26 @@
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
-    <nav class="navbar navbar-default">
-          <div class="container-fluid">
-              <ul class="navUL">
-                  <li class="navLI"><a href="createSchedule.html">Create</a></li>
-                  <li class="navLI"><a href="combineSchedule.html">Combine</a></li>
-                  <li class="navLI"><a href="mySchedule.html">Name</a></li>
-                  <li class="navLI"><button onclick="window.location='http://rrecatto.github.io';" type="button" class="btn btn-default navbar-btn">Log Out</button></li>
-              </ul>
-          </div>
-      </nav>
       
+      <div id="navbar"></div>
+      
+      
+      <div class="combineContainer">
+        <h1>Who do you want to combine schedules with?</h1> <br><br>
+        <div class="combineFormDiv">
+            <form class="formCombine">
+                <label for="inputEmail">Email address to combine with:</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus><br>
+                <button onclick="combineFunction()" type="submit" class="btn-primary">Combine!</button>
+            </form>
+        </div>
+      </div>
     
     <!--Bootstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/handlebars-v4.0.5.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/combineSchedule.js"></script>
   </body>
 </html>

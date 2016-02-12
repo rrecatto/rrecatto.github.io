@@ -9,34 +9,40 @@
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
-      <nav class="navbar navbar-default">
-          <div class="container-fluid">
-              <ul class="navUL">
-                  <li class="navLI"><a href="createSchedule.html">Create</a></li>
-                  <li class="navLI"><a href="combineSchedule.html">Combine</a></li>
-                  <li class="navLI"><a href="mySchedule.html">Name</a></li>
-                  <li class="navLI"><button onclick="window.location='http://rrecatto.github.io';" type="button" class="btn btn-default navbar-btn">Log Out</button></li>
-              </ul>
-          </div>
-      </nav>
+      <div id="navbar"></div>
       
     <div class="createContent">
 
 
-          <div class="createScheduleForm">
-            <form action="action_page.php">
+          <div class="createScheduleForm">        
               <div>
                         <h1>Create Schedule</h1>
                         <p>Enter the time you need to work...</p><br>
+                        <label for="SelectDay">Select Day</label>
+                        <div class="nav nav-pills left">
+                          <li class="dropdown active span8">
+                          <a class="dropdown-toggle" id="inp_impact" data-toggle="dropdown">
+                          <i class="icon icon-envelope icon-white"></i>&nbsp;<span id="dropdown_title">Select</span><span class="caret"></span></a>
+                          <ul id="divNewNotifications" class="dropdown-menu">
+                          <li><a>Sunday</a></li> 
+                          <li><a>Monday</a></li>       
+                          <li><a>Tuesday</a></li>
+                          <li><a>Wednesday</a></li>
+                          <li><a>Thursday</a></li> 
+                          <li><a>Friday</a></li>
+                          <li><a>Saturday</a></li>                              
+                    </ul>
+                </li>
+            </div>
                         <label for="beginTime">Begin at:</label>
-                        <input type="time" id="inputBtime" class="form-control" placeholder="Time" required autofocus>
+                        <input type="time" id="inputBTime" class="form-control" placeholder="Time" required autofocus>
                         <br>
                         <label for="endTime">End at:</label>
                         <input type="time" id="inputETime" class="form-control" placeholder="Time" required><br>
-                        <button class="btn btn-md btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-md btn-primary"  id = "submitButn" >Submit</button>
+                        <button class="btn btn-md btn-primary" type="cancel" id = "cancelButn"  onclick="window.location='http://rrecatto.github.io/mySchedule';">Cancel</button>
 
                     </div>
-            </form>
           </div>
       </div>
       
@@ -44,5 +50,10 @@
     <!--Bootstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/handlebars-v4.0.5.js"></script>
+   
+    <script src="js/navbar.js"></script>
+    <script src="js/createSchedule.js"></script>
+  
   </body>
 </html>

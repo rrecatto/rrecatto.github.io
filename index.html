@@ -32,7 +32,7 @@
           </div>
           <br>
           <div style="text-align:center;">
-            <button onclick="window.location='http://rrecatto.github.io/mySchedule';" class="btn btn-md btn-primary" type="submit">Sign in</button>
+            <button onclick="authorizeLogin()" class="btn btn-md btn-primary" type="submit">Sign in</button>
           </div>
 
       </div>
@@ -42,8 +42,12 @@
        <div style="text-align:center;">
         <a href="register.html" style="text-align: center;">Register</a>
       </div>
+      <br>
+      <div id="logError"></div>
     <!--Bootstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/handlebars-v4.0.5.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>
