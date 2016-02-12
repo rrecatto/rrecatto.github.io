@@ -25,53 +25,68 @@ function inputTime(){
 	convertTimeToJson();
 	switch(day){
 		case "Monday":
+                var localMon = JSON.prase (sessionStorage["mon"]);
 			 	i=bIndex;
 				while (i<=eIndex){
-				jsonObject.friend1.mon.push(i);
+				    localMon.push(i);
 				i++;
-			}
+			    }
+                sessionStorage.setItem('mon',  JSON.stringify(localMon));
 		break;
 		case "Tuesday":
-			i=bIndex;
-				while (i<=eIndex){
-				jsonObject.friend1.tue.push(i);
-				i++;
-			}
+			 var localTue = JSON.prase (sessionStorage["tue"]);
+                i=bIndex;
+                while (i<=eIndex){
+                    localTue.push(i);
+                i++;
+                }
+                sessionStorage.setItem('tue',  JSON.stringify(localTue));
 		break;
 		case "Wednesday":
-			i=bIndex;
-				while (i<=eIndex){
-				jsonObject.friend1.wed.push(i);
-				i++;
-			}
+			
+			    var localWed = JSON.prase (sessionStorage["wed"]);
+                i=bIndex;
+                while (i<=eIndex){
+                    localWed.push(i);
+                i++;
+                }
+                sessionStorage.setItem('wed',  JSON.stringify(localWed));
 		break;
 		case "Thursday":
-			i=bIndex;
-				while (i<=eIndex){
-				jsonObject.friend1.thu.push(i);
-				i++;
-			}
+			var localThu = JSON.prase (sessionStorage["thu"]);
+                i=bIndex;
+                while (i<=eIndex){
+                    localThu.push(i);
+                i++;
+                }
+                sessionStorage.setItem('thu',  JSON.stringify(localThu));
 		break;
 		case "Friday":
-			i=bIndex;
-				while (i<=eIndex){
-				jsonObject.friend1.fri.push(i);
-				i++;
-			}
+			var localFri = JSON.prase (sessionStorage["fri"]);
+                i=bIndex;
+                while (i<=eIndex){
+                    localFri.push(i);
+                i++;
+                }
+                sessionStorage.setItem('fri',  JSON.stringify(localFri));
 		break;
 		case "Saturday":
-			i=bIndex;
-			while (i<=eIndex){
-				jsonObject.friend1.sat.push(i);
-				i++;
-			}
+			var localSat = JSON.prase (sessionStorage["sat"]);
+                i=bIndex;
+                while (i<=eIndex){
+                    localSat.push(i);
+                i++;
+                }
+                sessionStorage.setItem('sat',  JSON.stringify(localSat));
 		break;
 		case "Sunday":
-			i=bIndex;
-			while (i<=eIndex){
-				jsonObject.friend1.sun.push(i);
-				i++;
-			}
+			var localSun = JSON.prase (sessionStorage["sun"]);
+                i=bIndex;
+                while (i<=eIndex){
+                    localSun.push(i);
+                i++;
+                }
+                sessionStorage.setItem('sun',  JSON.stringify(localSun));
 		break;
 
 	}
