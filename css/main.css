@@ -3,15 +3,6 @@ img {
     height: auto;
 }
 
-.navUL {
-    list-style-type: none;
-}
-
-.navLI {
-    display: inline;
-    padding: 2px;
-}
-
 .createContent {
     padding: 20px;
 }
@@ -25,6 +16,41 @@ img {
     height: auto;
 }
 
-#navbar {
-    font-size: 12px;
+.navUL {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #111;
+}
+
+.navLI {
+    float: left;
+}
+
+.navLI a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 6px 8px;
+    margin-top: 2px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.navLI .border {
+    border-right: 1px solid #555;
+}
+    
+
+#logoutButton {
+    background-color: #337ab7;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border: .5px solid #111;
+    padding: 3px;
+    color: white;
+    font-size: 11px;
+    margin-top: 4px;
+    margin-right: 2px;
 }

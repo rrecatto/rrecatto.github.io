@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 function initializeNav() {
     
-    var htmlStr = '<nav class="navbar navbar-default"><div class="container-fluid"><ul class="navUL"><li class="navLI"><a href="createSchedule.html">Create</a></li><li class="navLI"><a href="combineSchedule.html">Combine</a></li><li class="navLI"><a href="mySchedule.html">Name</a></li><li class="navLI"><button onclick="logout()" class="navbar-btn">Log Out</button></li></ul></div></nav>';
+    var htmlStr = '<ul class="navUL"><li class="navLI"><a class="border" href="createSchedule.html">Add Events</a></li><li class="navLI"><a class="border"  href="combineSchedule.html">Add Friends</a></li><li class="navLI" id="lastNav"><a href="mySchedule.html">Schedule</a></li><ul class="navUL" style="float:right;list-style-type:none;"><li class="navLI"><button id="logoutButton" onclick="logout()" style="float:right;" class="navbar-btn">Log Out</button></li></ul></ul><br>';
 
     $("#navbar").html(htmlStr);    
 }
