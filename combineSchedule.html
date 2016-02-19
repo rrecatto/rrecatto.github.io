@@ -14,19 +14,19 @@
       
       
       <div class="combineContainer">
-        <h1>Who do you want to combine schedules with?</h1> <br><br>
+        <h2>Who do you want to combine schedules with?</h2> <br><br>
         <div class="combineFormDiv">
             <form class="formCombine">
-                <label for="inputEmail">Email address to combine with:</label>
-                <input id="combineEmail" class="form-control" placeholder="Email" required autofocus><br>
-                <button onclick="combineFunction()" type="submit" class="btn-primary">Combine!</button>
+                <label for="friendUsername">Your Friend's Username:</label>
+                <input id="friendUsername" class="form-control" placeholder="Username" required autofocus><br>
+                <button id="combineButton" type="submit" class="btn btn-primary">Combine!</button>
             </form>
         </div>
       </div>
       
       <br><br>
       
-      <div id="comError"></div>
+      <div id="comFeedback"></div>
     
     <!--Bootstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

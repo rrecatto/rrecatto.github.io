@@ -9,11 +9,14 @@ function initializePage() {
 }
 
 
+jsonTemplate = '{ "mon" : [], "tue" : [], "wed" : [], "thu" : [], "fri" : [], "sat" : [], "sun" : [] }'
+
 function signUpUser() {
 
-    var userName = $('#regEmail').val();
+    var userName = $('#regName').val();
     var passWord = $('#regPassword').val();
     var pwRepeat = $('#regPasswordAgain').val();
+    var testName = sessionStorage.getItem(userName);
     
     if(passWord==='' || pwRepeat==='' || userName==='') {
         $('#regError').html('<p style="color:red;text-align:center;">ERROR: PLEASE FILL OUT ALL FIELDS</p>');
@@ -23,36 +26,58 @@ function signUpUser() {
         console.log("here2");
         $('#regError').html('<p style="color:red;text-align:center;">ERROR: PASSWORDS DO NOT MATCH</p>');
     }
-    else {      
-        sessionStorage.user = userName;
-        sessionStorage.pw = passWord;
+    else if (testName != null) {   
+
+        $('#regError').html('<p style="color:red;text-align:center;">ERROR: USERNAME ALREADY EXIST</p>');
         
-        window.location.href = 'rrecatto.github.io';
+    }else{
+
+        sessionStorage.setItem(userName,passWord); 
+
+        console.log("user name is : " + userName+" passWord is : " + passWord);
+        
+        window.location.href = 'index.html';
     }
         
 }
 
 
 function authorizeLogin() {
-    
-    var userName = $('#inputEmail').val();
+    var userName = $('#inputName').val();
     var passWord = $('#inputPassword').val();
-    var email = sessionStorage.user;
-    var pw = sessionStorage.pw;
+    var pw = sessionStorage.getItem(userName);
+
+    
     
     if(userName==='' || passWord==='') {
         $('#logError').html('<p style="color:red;text-align:center;">ERROR: PLEASE ENTER BOTH EMAIL AND PASSWORD</p>');
         console.log("here");
     }
-    else if(email==null ||pw==null) {
-        $('#logError').html('<p style="color:red;text-align:center;">ERROR: EITHER USERNAME OR PASSWORD INCORRECT (no users)</p>');
+    else if(pw==null) {
+        $('#logError').html('<p style="color:red;text-align:center;">ERROR: USERNAME DOES NOT EXIST(no users)</p>');
     }
-    else if(userName!=email || passWord!=pw){
+    else if(passWord!=pw){
         $('#logError').html('<p style="color:red;text-align:center;">ERROR: EITHER USERNAME OR PASSWORD INCORRECT</p>');
     }
     else {
-        window.location.href = '/mySchedule';
+            console.log("user name is : " + userName+" passWord is : " + pw);
+            sessionStorage.setItem("currUser",userName);
+            if(sessionStorage[userName+"-data"]){
+                window.location.href = 'mySchedule.html';
+            }
+            else{
+                jsonObject = '{ "' + userName + '" : ' + jsonTemplate + '}' ;
+                sessionStorage.setItem(userName+"-data", jsonObject);
+                sessionStorage.setItem("firstLogin","true");
+                window.location.href = "mySchedule.html"; //<--- change this to the landing page
+            }
+            
     }
     
            
+}
+
+function cancel(){
+ window.location.href = 'index.html';
+
 }

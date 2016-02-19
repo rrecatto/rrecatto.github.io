@@ -1,215 +1,215 @@
 var timeContentDebug = [{timeIDAbove: "this-is-empty", 
                       timeContentAbove: "&nbsp;", 
-                      timeLabel: "7:00 Am",
+                      timeLabel: "7:00 am",
                       timeIDBelow: "t0", 
                       timeContentBelow: "7:00"
                       },
                       
                       {timeIDAbove: "t1", 
                       timeContentAbove: "7:30", 
-                      timeLabel: "8:00 Am",
+                      timeLabel: "8:00 am",
                       timeIDBelow: "t2", 
                       timeContentBelow: "8:00"
                       },
                       
                       {timeIDAbove: "t3", 
                       timeContentAbove: "8:30", 
-                      timeLabel: "9:00 Am",
+                      timeLabel: "9:00 am",
                       timeIDBelow: "t4", 
                       timeContentBelow: "9"
                       },
                       
                       {timeIDAbove: "t5", 
                       timeContentAbove: "930", 
-                      timeLabel: "10:00 Am",
+                      timeLabel: "10:00 am",
                       timeIDBelow: "t6", 
                       timeContentBelow: "10"
                       },
                       
                       {timeIDAbove: "t7", 
                       timeContentAbove: "1030", 
-                      timeLabel: "11:00 Am",
+                      timeLabel: "11:00 am",
                       timeIDBelow: "t8", 
                       timeContentBelow: "11"
                       },
                       
                       {timeIDAbove: "t9", 
                       timeContentAbove: "1130", 
-                      timeLabel: "12:00 Pm",
+                      timeLabel: "12:00 pm",
                       timeIDBelow: "t10", 
                       timeContentBelow: "12"
                       },
                       
                       {timeIDAbove: "t11", 
                       timeContentAbove: "1230", 
-                      timeLabel: "1:00 Pm",
+                      timeLabel: "1:00 pm",
                       timeIDBelow: "t12", 
                       timeContentBelow: "1"
                       },
                       
                       {timeIDAbove: "t13", 
                       timeContentAbove: "130", 
-                      timeLabel: "2:00 Pm",
+                      timeLabel: "2:00 pm",
                       timeIDBelow: "t14", 
                       timeContentBelow: "2"
                       },
                       
                       {timeIDAbove: "t15", 
                       timeContentAbove: "230", 
-                      timeLabel: "3:00 Pm",
+                      timeLabel: "3:00 pm",
                       timeIDBelow: "t16", 
                       timeContentBelow: "3"
                       },
                       
                       {timeIDAbove: "t17", 
                       timeContentAbove: "330", 
-                      timeLabel: "4:00 Pm",
+                      timeLabel: "4:00 pm",
                       timeIDBelow: "t18", 
                       timeContentBelow: "4"
                       },
                       
                       {timeIDAbove: "t19", 
                       timeContentAbove: "430", 
-                      timeLabel: "5:00 Pm",
+                      timeLabel: "5:00 pm",
                       timeIDBelow: "t20", 
                       timeContentBelow: "5"
                       },
                       {timeIDAbove: "t21", 
                       timeContentAbove: "530", 
-                      timeLabel: "6:00 Pm",
+                      timeLabel: "6:00 pm",
                       timeIDBelow: "t22", 
                       timeContentBelow: "6"
                       },
                       {timeIDAbove: "t23", 
                       timeContentAbove: "630", 
-                      timeLabel: "7:00 Pm",
+                      timeLabel: "7:00 pm",
                       timeIDBelow: "t24", 
                       timeContentBelow: "7"
                       },
                       {timeIDAbove: "t25", 
                       timeContentAbove: "730", 
-                      timeLabel: "8:00 Pm",
+                      timeLabel: "8:00 pm",
                       timeIDBelow: "t26", 
                       timeContentBelow: "8"},
                       
                       {timeIDAbove: "t27", 
                       timeContentAbove: "830", 
-                      timeLabel: "9:00 Pm",
+                      timeLabel: "9:00 pm",
                       timeIDBelow: "t28", 
                       timeContentBelow: "9"},
                       
                       {timeIDAbove: "t29", 
                       timeContentAbove: "930", 
-                      timeLabel: "10:00 Pm",
+                      timeLabel: "10:00 pm",
                       timeIDBelow: "t30", 
                       timeContentBelow: "10"},
                       ];
 
                       
                       
-var timeContent = [{timeIDAbove: "this-is-empty", 
+var MStimeContent = [{timeIDAbove: "this-is-empty", 
                       timeContentAbove: "&nbsp;", 
-                      timeLabel: "7:00 Am",
+                      timeLabel: "7:00 am",
                       timeIDBelow: "t0", 
                       timeContentBelow: " "
                       },
                       
                       {timeIDAbove: "t1", 
                       timeContentAbove:" ", 
-                      timeLabel: "8:00 Am",
+                      timeLabel: "8:00 am",
                       timeIDBelow: "t2", 
                       timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t3", 
                       timeContentAbove: "  ", 
-                      timeLabel: "9:00 Am",
+                      timeLabel: "9:00 am",
                       timeIDBelow: "t4", 
                       timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t5", 
                       timeContentAbove: "  ", 
-                      timeLabel: "10:00 Am",
+                      timeLabel: "10:00 am",
                       timeIDBelow: "t6", 
                       timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t7", 
                       timeContentAbove: "  ", 
-                      timeLabel: "11:00 Am",
+                      timeLabel: "11:00 am",
                       timeIDBelow: "t8", 
                       timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t9", 
                       timeContentAbove: "  ", 
-                      timeLabel: "12:00 Pm",
+                      timeLabel: "12:00 pm",
                       timeIDBelow: "t10", 
                       timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t11", 
                       timeContentAbove: "  ", 
-                      timeLabel: "1:00 Pm",
+                      timeLabel: "1:00 pm",
                       timeIDBelow: "t12", 
                       timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t13", 
                       timeContentAbove: "  ", 
-                      timeLabel: "2:00 Pm",
+                      timeLabel: "2:00 pm",
                       timeIDBelow: "t14", 
                       timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t15", 
                       timeContentAbove: "  ", 
-                      timeLabel: "3:00 Pm",
+                      timeLabel: "3:00 pm",
                       timeIDBelow: "t16", 
                       timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t17", 
                       timeContentAbove: "  ", 
-                      timeLabel: "4:00 Pm",
+                      timeLabel: "4:00 pm",
                       timeIDBelow: "t18", 
                       timeContentBelow: "  "
                       },
                       
                       {timeIDAbove: "t19", 
                       timeContentAbove: "  ", 
-                      timeLabel: "5:00 Pm",
+                      timeLabel: "5:00 pm",
                       timeIDBelow: "t20", 
                       timeContentBelow: "  "
                       },
                       {timeIDAbove: "t21", 
                       timeContentAbove: "  ", 
-                      timeLabel: "6:00 Pm",
+                      timeLabel: "6:00 pm",
                       timeIDBelow: "t22", 
                       timeContentBelow: "  "
                       },
                       {timeIDAbove: "t23", 
                       timeContentAbove: "  ", 
-                      timeLabel: "7:00 Pm",
+                      timeLabel: "7:00 pm",
                       timeIDBelow: "t24", 
                       timeContentBelow: "  "
                       },
                       {timeIDAbove: "t25", 
                       timeContentAbove: "  ", 
-                      timeLabel: "8:00 Pm",
+                      timeLabel: "8:00 pm",
                       timeIDBelow: "t26", 
                       timeContentBelow: "  "},
                       
                       {timeIDAbove: "t27", 
                       timeContentAbove: "  ", 
-                      timeLabel: "9:00 Pm",
+                      timeLabel: "9:00 pm",
                       timeIDBelow: "t28", 
                       timeContentBelow: "  "},
                       
                       {timeIDAbove: "t29", 
                       timeContentAbove: "  ", 
-                      timeLabel: "10:00 Pm",
+                      timeLabel: "10:00 pm",
                       timeIDBelow: "t30", 
                       timeContentBelow: "  "},
                       ];

@@ -1,12 +1,20 @@
 'use strict';
+//GLOBALS
+
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
+    
 	initializePageForCS();
-})
+
+    
+});
+
+function getUserData(){
+
+}
+
 var day;
-var bIndex;
-var eIndex;
 function initializePageForCS() {
 	$('#submitButn').click(inputTime);
 	$('.dropdown-toggle').dropdown();
@@ -28,7 +36,10 @@ function validateForm(){
     var start_digit = translateTime(start);
     var end_digit = translateTime(end);
     console.log( start_digit + " , " + end_digit );
-    inputTime('friend1',day,start_digit, end_digit);
+    
+    var current_username = sessionStorage.getItem('currUser');
+    inputTime(current_username, day, start_digit, end_digit);
+    $('#createFeedback').html('<p style="color:green;text-align:center;">Successfully Added Event!</p>');
 }
 
 
@@ -46,7 +57,8 @@ function translateTime(timeString){
 }
 
 function inputTime(name,day,start,end){
-    if(sessionStorage.getItem('example') === null){
+
+    if(sessionStorage.getItem(name + '-data') === null){ //this will never happen
         console.log("no data in session storage");
         var jsonObject = '{ "friend1" : { \
                                 "mon" : [], \
@@ -57,23 +69,32 @@ function inputTime(name,day,start,end){
                                 "sat" : [], \
                                 "sun" : []  \
                                  } \
-                           }'
+                           }';
         console.log("created new jsonObject");
     }
     else{
-        var jsonObject = sessionStorage.getItem('example');
+        var jsonObject = sessionStorage.getItem(name + '-data');
     }
     var data = JSON.parse(jsonObject);
+    console.log("data[name] is "+ data[name]);
+    console.log("data[name][day] is "+ data[name][day]);
     var newArray = data[name][day];
+
+    
     var i = start;
     for (var i = start; i < end; i++ ){
           newArray.push(i);
     }
     newArray = removeDuplicates(newArray);
-    newArray.sort();
+    console.log("newArray before sort");
+    console.log(newArray);
+    newArray = newArray.sort(function(a, b){return a-b});
+    console.log("newArray after sort");
+    console.log(newArray);
     data[name][day] = newArray;
     
-    sessionStorage.setItem('example',  JSON.stringify(data));
+    sessionStorage.setItem(name + '-data',  JSON.stringify(data));
+    window.location.href = 'mySchedule.html';
 }
 
 function removeDuplicates(duplicatesArray){
@@ -81,4 +102,8 @@ function removeDuplicates(duplicatesArray){
     return duplicatesArray.indexOf(elem) == pos;
     });
     return uniqueArray;
+}
+function cancel(){
+
+    window.location.href = 'mySchedule.html';
 }

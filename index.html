@@ -9,18 +9,27 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
   </head>
+  <style>
+  #fr{color:rgba(92, 184, 92, 0.9);}
+  #ee{color:rgb(191,177,83);}
+  #up{color:rgba(240, 173, 78, 0.9);}
+  
+  </style>
+  
+  
   <body>
-    
+
       
-      <div style="text-align:center;">        
-        <img src="img/logo.jpg">
+      <div style="text-align:center; margin-top:15%;">        
+        <h1 style="font-size:420%"><b><span id="fr">Fr</span><span id="ee">ee</span><span id="up">Up</span></b><h1>
+        <h4>When are <strong>we</strong> free?</h4>
       </div>
       
         <div class="container">
-      <br><br>
+      <br>
       <form class="form-signin">
-          <label for="inputEmail">Email address:</label>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+          <label for="inputName">Username:</label>
+          <input type="text" id="inputName" class="form-control" placeholder="Username" required autofocus>
           <br>
           <label for="inputPassword">Password:</label>
           <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
@@ -32,7 +41,7 @@
           </div>
           <br>
           <div style="text-align:center;">
-            <button onclick="authorizeLogin()" class="btn btn-md btn-primary" type="submit">Sign in</button>
+            <button onclick="authorizeLogin()" class="btn btn-md btn-primary" type="submit" style="width:80%">Sign in</button>
           </div>
 
       </div>

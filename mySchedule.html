@@ -9,155 +9,141 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
     <!-- TODO: put this into stylesheet -->
-    <style>
-    .eventblock {
-    margin: auto;
-    width: 70%;
-    border: 1px solid #73AD21;
-    padding: 10px;
-    }
-    
-    
-    .day {
-    text-align:center;
-    margin: auto;
-    width: 30%;
-    border: 3px solid #73AD21;
-    padding: 10px;
-    }
-    .times {
-    padding-right: 20px
-    }
-    
-    .taken {
-    background: rgba(255,0,0,0.3);
-    }
-    
-    ul#tabs { display:table; table-layout: fixed; margin-bottom: -1px; margin:auto; width: 90%; padding: 0px}
-    ul#tabs li { display: table-cell;
-    text-align:center;
-    border: 1px;
-    background-color: #dedbde; 
-    border: 1px solid #c9c3ba; 
-    border-bottom: none;
-    }
-    
-    ul#tabs li a { color: #42454a; text-decoration: none; }
-    ul#tabs li a.selected { color: #000; background-color: #fff0ee; font-weight: bold;}
-    ul#tabs li :hover { background-color: #f1f0ee; }
-    div.tabContent { border: 1px solid #c9c3ba; padding: 0.5em; background-color: #f1f0ee; margin: auto; width: 90%;}
-    div.tabContent.hide { display: none; }
-    
-
-
-.nav-justified > li {
-      display: table-cell;
-      width: 1%;
-      padding: 0px;
-      font-size: 90%;
-      font-weight: bold;
-}
-.tab-pane {
-    width: 100%;
-    border: 1px solid blue;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-.tab-pane > td {
-    overflow: hidden;
-    height: 500px;
-}
-.time-table{
-    width:100%;
-}
-.time-table td {
-    border-left:solid 10px transparent;
-    
-    
-}
-.time{
-    width: 15%;
-    border-right: rgba(255, 30, 30, .9);
-    text-align: right;
-    
-    margin-right: 7px;
-    white-space:nowrap;
-    
-}
-.line { 
-    width:100%;
-    margin-left: 5px;
-    border-top: 1px solid;
-    border-color: rgba(140, 140, 140, .5);
-}
-.top-of-block {
-    border-top-left-radius : 7px;
-    border-top-right-radius : 7px;
-}
-.bottom-of-block {
-    border-bottom-left-radius : 7px;
-    border-bottom-right-radius : 7px;
-}  
-
-.stack0 {
-    position: absolute;
-    z-index:2;
-    width:10em;
-    background-color: rgba(255,0,0,.3);
-}
-.stack1 {
-    position: absolute;
-    z-index:3;
-    width:10em;
-    background-color: rgba(0,0,255,.3);
-}
-
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/mySchedule.css"/>
+    <link href="css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css"/>
 </head>
   
   
 <body>
     <div id="navbar"></div>
+      <!--modal window -->
+    <div id="landingModal" class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title" align="center">Welcome to FreeUp</h2>
+        </div>
+        <div class="modal-body">
+       
+            <!--swappppppppppppppp-->
+         <a href="#" class="control_next">></a>
+         <a href="#" class="control_prev"><</a>
+         <div class="slider">
+            <div style="display: inline-block;">
+                <h4>Create your schedule by pressing Add Event</h4>
+          
+                <img src="img/create.PNG"/>
+            </div>
+            <div>
+               <h4>Combine your schedule with your firends by pressing Add Friends</h4>
+          
+                <img src="img/combine.PNG"/>
+            </div>
+            <div>
+               <h4>See your sechdule by pressing Schedule</h4>
+          
+                <img src="img/schedule.PNG"/>
+            </div>
+            <div>
+                <h4>Use filter to choose friends which you want to combine with</h4>
+          
+                <img src="img/filter.PNG"/>
+            </div>
+        </div>
+
+            <!--swappppppppppppppp-->
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+       </div>
+      </div>
+    </div>
+
+
+    <!-- handlebars template for friends-->
+    <script id="friendlist-template" type="text/x-handlebars-template">
+        <div id="friendlist">
+            <ul id="friend-list">
+            {{#each friends}}
+                <li><input  type="checkbox" 
+                            data-toggle="toggle" 
+                            id="friend-{{@index}}"
+                            checked 
+                            data-on="{{@key}}" 
+                            data-off="{{@key}}"
+                            {{#ifCond @index 0}}
+                                data-onstyle="success"
+                            {{/ifCond}}
+                            {{#ifCond @index 1}}
+                                data-onstyle="warning"
+                            {{/ifCond}}
+                            {{#ifCond @index 2}}
+                                data-onstyle="info"
+                            {{/ifCond}}
+                            {{#ifCond @index 3}}
+                                data-onstyle="danger"
+                            {{/ifCond}}
+                            {{#ifCond @index 4}}
+                                data-onstyle="primary"
+                            {{/ifCond}}
+                            ></li>
+            {{/each}}
+            </ul>
+            </div>
+    </script>
+    
+    <!-- handlebars template for schedule-->
+    <script id="table-template" type="text/x-handlebars-template">
+        <div id="content">
+            <table class = 'time-table'>
+                {{#each timeSlots}}
+                <tr><td class='time' rowspan='2'>{{timeLabel}}</td>
+                <td id='{{timeIDAbove}}'>{{{timeContentAbove}}}</td></tr>
+                <tr><td class='line' id='{{timeIDBelow}}'>{{{timeContentBelow}}}</td></tr>
+                {{/each}}
+            </table>
+        </div>    
+    </script>   
+        
+    <div id="friend-filter"></div>
+    
   
   
-<div class = "container">
+
+<div class = "container"> <!--container for bs3-->
     <!-- days of the week tabs -->
-    <ul class ="nav nav-pills nav-justified">
-            <li  class="active"><a data-toggle="pill" href="#monday" id="mon-tab">M</a></li>
-            <li><a data-toggle="pill" href="#tuesday" id="tue-tab">T</a></li>
-            <li><a data-toggle="pill" href="#wednesday" id="wed-tab">W</a></li>
-            <li><a data-toggle="pill" href="#thursday" id="thu-tab">Th</a></li>
-            <li><a data-toggle="pill" href="#friday" id="fri-tab">F</a></li>
-            <li><a data-toggle="pill" href="#saturday" id="sat-tab">Sa</a></li>
-            <li><a data-toggle="pill" href="#sunday" id="sun-tab">Su</a></li>
+    <ul class ="nav nav-tabs nav-justified">
+            <li  class="active"><a data-toggle="tab" href="#monday" id="mon-tab">M</a></li>
+            <li><a data-toggle="tab" href="#tuesday" id="tue-tab">T</a></li>
+            <li><a data-toggle="tab" href="#wednesday" id="wed-tab">W</a></li>
+            <li><a data-toggle="tab" href="#thursday" id="thu-tab">Th</a></li>
+            <li><a data-toggle="tab" href="#friday" id="fri-tab">F</a></li>
+            <li><a data-toggle="tab" href="#saturday" id="sat-tab">Sa</a></li>
+            <li><a data-toggle="tab" href="#sunday" id="sun-tab">Su</a></li>
     </ul>
     <!-- tab content -->
-    <div <div ng-app="schedule" class="tab-content">
+    
+    
+    
+    <div class="content-wrapper">
+    <div class="tab-content">
         <div id="monday" class="tab-pane fade in active"></div>
-        <div id="tuesday"class="tab-pane fade" schedule-template></div>
-        <div id="wednesday"class="tab-pane fade" schedule-template></div>
-        <div id="thursday"class="tab-pane fade" schedule-template></div>
-        <div id="friday"class="tab-pane fade" schedule-template></div>
-        <div id="saturday"class="tab-pane fade" schedule-template></div>
-        <div id="sunday"class="tab-pane fade" schedule-template></div>
+        <div id="tuesday"class="tab-pane fade"></div>
+        <div id="wednesday"class="tab-pane fade" ></div>
+        <div id="thursday"class="tab-pane fade"></div>
+        <div id="friday"class="tab-pane fade" ></div>
+        <div id="saturday"class="tab-pane fade"></div>
+        <div id="sunday"class="tab-pane fade"></div>
+    </div>
     </div>
 </div>
 
-<!-- handlebars template -->
-<script id="table-template" type="text/x-handlebars-template">
-                <div id="content">
-                <table class = 'time-table'>
-                {{#each timeSlots}}
-                <tr><td class='time' rowspan='2'>{{timeLabel}}</td>
-                    <td id='{{timeIDAbove}}'>{{{timeContentAbove}}}</td></tr>
-                    <tr><td class='line' id='{{timeIDBelow}}'>{{{timeContentBelow}}}</td></tr>
-                {{/each}}
-                </table>
-                    
 
-</script>
+
+
 
 
      <!--
@@ -185,11 +171,14 @@
     <!--js libraries : may want to host these instead of linking-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
+    
+    <script src="js/mySchedule.js"></script>
+    
+    <script src="lib/bootstrap-toggle.min.js"></script>
     <script src="lib/handlebars-v4.0.5.js"></script>
     <!--js-->
     <script src="js/table.js"></script>
-    <script src="js/mySchedule.js"></script>
-    <script src="js/handlebars-v4.0.5.js"></script>
     <script src="js/navbar.js"></script>
+        
   </body>
 </html>

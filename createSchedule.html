@@ -7,51 +7,50 @@
     <!-- Link Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
+
   </head>
   <body>
-      <div id="navbar">{{navbar}}</div>
+    <div id="navbar">{{navbar}}</div>
       
     <div class="createContent">
-          <div class="createScheduleForm">       
-                <h1>Create Schedule</h1>
-                    <p>Enter the times you are busy:</p>
-                    <br>
-                    
-                    <form id="scheduleForm" name="scheduleForm" action="" method="POST">
-                        <div class="form-group">
-                        <select name="day" id="selectDay"> <!--bootstrap selects dont work on mobile -->
-                            <option value="mon">Monday</option>
-                            <option value="tue">Tuesday</option>
-                            <option value="wed">Wednesday</option>
-                            <option value="thu">Thursday</option>
-                            <option value="fri">Friday</option>
-                            <option value="sat">Saturday</option>
-                            <option value="sun">Sunday</option>
-                        </select>
-                        </div>
-                        <br>
-                        <label for="startTime">Begin at:</label>
-                        <input type="time" id="startTime" class="form-control" step="1800" value="14:00" name="start" required autofocus>
-                        <br>
-                        <label for="endTime">End at:</label>
-                        <input type="time" id="endTime" class="form-control" name="end" step="1800" value="15:00" required>
-                        <br>
-                        <input type="button" class="btn btn-primary" id="submitButton" value="Submit" onclick="validateForm();">
-                        
-                        <button class="btn btn-md btn-primary" type="cancel" id ="cancelButn"  onclick="window.location='http://rrecatto.github.io/mySchedule';">Cancel</button>
-                        
-                    </form>
-                   
+        <div class="createScheduleForm">       
+            <h2>Create Schedule</h2>
+            <p>Enter the times you are busy:</p>
+            
+            <form id="scheduleForm" name="scheduleForm" action="" method="POST">
+                <div class="form-group">
+                    <label for="selectDay">Day:</label>
+                    <select name="day" id="selectDay" class ="form-control"> <!--bootstrap selects dont work on mobile -->
+                        <option value="mon">Monday</option>
+                        <option value="tue">Tuesday</option>
+                        <option value="wed">Wednesday</option>
+                        <option value="thu">Thursday</option>
+                        <option value="fri">Friday</option>
+                        <option value="sat">Saturday</option>
+                        <option value="sun">Sunday</option>
+                    </select>
+                </div>
+                <label for="startTime">Begin at:</label>
+                <input type="time" id="startTime" class="form-control" step="1800" value="07:00" name="start" required autofocus>
+                <br>
+                <label for="endTime">End at:</label>
+                <input type="time" id="endTime" class="form-control" name="end" step="1800" value="08:00" required>
+                <br>
+                <input type="button" class="btn btn-primary" id="submitButton" value="Submit" onclick="validateForm();">
+                <button class="btn btn-md btn-primary" type="cancel" id ="cancelButn" onclick="cancel()" style="margin-left:20px">Cancel</button>
+            </form>
+            <div id="createFeedback"></div>
 
           </div>
-      </div>
+          
+    </div>
       
-      
+    
     <!--Bootstrap-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/handlebars-v4.0.5.js"></script>
-   
+
     <script src="js/navbar.js"></script>
     <script src="js/createSchedule.js"></script>
   

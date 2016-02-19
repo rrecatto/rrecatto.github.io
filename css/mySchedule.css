@@ -1,0 +1,169 @@
+
+
+.nav-justified > li {
+      display: table-cell;
+      width: 1%;
+      padding: 0px;
+      font-size: 90%;
+      font-weight: bold;
+}
+#friend-filter{
+    margin:15px;
+}
+
+#friend-filter ul {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+#friend-filter ul li { display: inline; }
+
+
+.content-wrapper{
+    border: 1px solid rgba(140, 140, 140, .5);
+    border-radius: 5px;
+    margin-right:5%;
+    margin-left: 5%;
+    padding-left: 14px;
+    padding-right: 14px;
+} /*this extra thing right here is necessary idk why*/
+} /*dont delete this pls*/
+.tab-pane {
+    position:absolute;
+    left: 20px;
+    width: 70%;
+
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.time{
+    width: 10%;
+    text-align: right;
+    padding-right:14px;
+    white-space:nowrap;
+    
+}
+.line { 
+
+    border-top: 1px solid;
+    border-color: rgba(140, 140, 140, .5);
+}
+.top-of-block {
+    border-top-left-radius : 7px;
+    border-top-right-radius : 7px;
+}
+.bottom-of-block {
+    border-bottom-left-radius : 7px;
+    border-bottom-right-radius : 7px;
+}  
+
+.stack0 {
+    position: absolute;
+    z-index:2;
+    width: 35%;
+    margin-left:0%;
+    background-color: rgba(92, 184, 92, 0.5); /*green , success*/
+}
+.stack1 {
+    position: absolute;
+    z-index:3;
+    width: 35%;
+    margin-left:4%;
+    background-color: rgba(240, 173, 78, 0.5); /*yellow warning*/
+}
+
+.stack2 {
+    position: absolute;
+    z-index:4;
+    width: 35%;
+    margin-left:8%;
+    background-color: rgba(91, 192, 222, 0.5); /*cyan info*/
+
+}
+
+.stack3{
+    position: absolute;
+    z-index:5;
+    width: 35%;
+    margin-left:12%;
+    background-color: rgba(217, 83, 79, 0.5); /*red danger*/
+
+}
+
+.stack4{
+    position: absolute;
+    z-index:6;
+    width: 35%;
+    margin-left:16%;
+    background-color: rgba(51, 122, 183, 0.5); /*blue primary*/
+
+
+
+}
+
+
+
+
+.slider {
+  max-width: 400px;
+  background-color: black;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.slider div {
+  background-color: white;
+  width: 100%;
+  display: inline-block;
+  display: none;
+}
+.slider img {
+  width: auto;
+  height: auto;
+}
+
+
+
+
+a.control_prev, a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: #2a2a2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+a.control_prev:hover, a.control_next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+}
+
+a.control_prev {
+  left: 0;
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.modal-dialog{
+    position: center;
+}
+
+

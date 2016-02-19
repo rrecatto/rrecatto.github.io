@@ -13,8 +13,8 @@
       <h1 style="text-align:center;">Register</h1>
       <div class="container">
           <form class="registerForm">
-            <label for="inputEmail">Email address:</label>
-          <input type="email" id="regEmail" class="form-control" placeholder="Email" required autofocus>
+            <label for="inputUserName">User Name:</label>
+          <input type="email" id="regName" class="form-control" placeholder="User Name" required autofocus>
           <br>
           <label for="inputPassword">Password:</label>
           <input type="password" id="regPassword" class="form-control" placeholder="Password" required>
@@ -25,7 +25,12 @@
           
           <br><br>
           <div style="text-align:center;">
-            <button onclick="signUpUser()" class="btn btn-md btn-primary" type="submit">Go</button>
+            <button onclick="signUpUser()" class="btn btn-md btn-primary" type="submit">Sign Up</button>
+            <div>
+              <br>
+              <br>
+            </div>
+            <button onclick="cancel()" class="btn btn-md btn-primary" type="submit">Cancel</button>
           </div>
           <br><br>
           
