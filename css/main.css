@@ -16,32 +16,16 @@ img {
     height: auto;
 }
 
-.navUL {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #111;
+.navbar-nav>li, .navbar-nav {
+float: left;
+}
+.navbar-right {
+float: right!important;
+}
+.navbar-right>li button{
+    margin:5px;
 }
 
-.navLI {
-    float: left;
-}
-
-.navLI a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 6px 8px;
-    margin-top: 2px;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-.navLI .border {
-    border-right: 1px solid #555;
-}
-    
 
 #logoutButton {
     background-color: #337ab7;
