@@ -1,8 +1,31 @@
 $(document).ready(function() {
+    //display friend list
+    displayFriendList();
+
+
+
+    $('table').on('click','button' , function(el){
+        var row = document.getElementById(this.id);
+        row.parentNode.removeChild(row);
+        var currentUser = sessionStorage.getItem("currUser");
+        var userJData =JSON.parse(sessionStorage.getItem(currentUser + '-data'));
+        var key = this.id;
+        console.log("key is"+key);
+        delete userJData[key];
+        var newJData = JSON.stringify(userJData);
+        sessionStorage.setItem(currentUser + '-data' , newJData);
+
+
+    });
+
+
     $("#combineButton").click(function(){
         if(combineFunction() === -1){
             alert("combine failed!");
+
         }
+    
+
     });
 });
 
@@ -37,6 +60,7 @@ function firstObj(obj) {
 function combineFunction() {
     //this is hardcoded, make this not hardcoded later
     //get currennt user's  json object name
+    
     var current_user = sessionStorage.getItem("currUser");
 
 
@@ -58,6 +82,10 @@ function combineFunction() {
         
         var newData = JSON.stringify(userData);
         sessionStorage.setItem(current_user + '-data' , newData);
+
+    // add friend list
+       displayFriendList();
+
     } else {
         alert("No user found. Please try again.");
     }
@@ -87,4 +115,29 @@ function combineFunction() {
                                 },';
     }*/
     //sessionStorage.setItem('example', newData);
+   
+
+}
+
+function displayFriendList(){
+ var current_user = sessionStorage.getItem("currUser");
+
+ userData=JSON.parse(sessionStorage.getItem(current_user + '-data'));
+ var friendName = $('#friendUsername').val()+' <a href="#">x</a>';
+
+ $.each(userData,function(key,value){
+    if(key!=current_user){
+        console.log("here");
+        var tr;
+        tr = $('<tr id='+key+' />');
+        tr.append("<td>"+key+"</td>");
+        tr.append("<td>"+'<button id="'+key+'">x</button>'+"</td>");
+        $('#friendList').append(tr);
+    }
+});
+
+    //$('#friendList').append('<tr>'+'<td>'+key+'</td><td><button id="'+key+'">x</button>'+'</td></tr>');});
+
+//$('<li />', {html: friendName}).appendTo('ul.friendList');
+
 }
