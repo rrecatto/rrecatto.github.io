@@ -19,20 +19,34 @@
         <div class="combineFormDiv">
             <form class="formCombine">
                 <label for="friendUsername">Your Friend's Username:</label>
-                <input id="friendUsername" class="form-control" placeholder="Username" required autofocus><br>
+                <input id="friendUsername" class="form-control" placeholder="Username" required autofocus>
+                
+                <div id="successMsg" style="display:none;"><p>Successfully Added Friend!</p></div>
+                <div id="error_notfound" style="display:none;"><p>Could Not Find Username</p></div>
+                <br>
                 <button id="combineButton" type="submit" class="btn btn-primary">Combine!</button>
-                <h3>Friend List</h3><br>
-                <div><table id="friendList"></table><div>
+
             </form>
         </div>
       
       </div>
-
-     
+    <div id="friendlistContainer">
+        <!--handlebars here-->
+    </div>
       
-      <br><br>
       
-      <div id="comFeedback"></div>
+    <script id="friends-template" type="text/x-handlebars-template">
+        {{#each friends}}
+        <div class="friendBox" id="friend{{@index}}">
+            <div class="friendName">{{@key}}</div>
+            <div id="delete-container-{{@key}}">
+                <button class="btn btn-danger btn-sm delete" id="delete-{{@key}}">X</button>
+                <div class="confirmation-message" id="confirmation-message-{{@key}}" style="display:none;">Are You Sure?</div>
+                <!-- <button class="btn btn-danger btn-sm confirm-delete" id="delete-friend-{{@key}}" style="display:none;">Delete</button> -->
+            </div>
+        </div>
+        {{/each}}
+    </script>
     
     <!--Bootstrap-->
     <script src="lib/jquery-1.12.1.min.js"></script>

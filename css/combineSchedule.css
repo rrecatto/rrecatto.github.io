@@ -3,11 +3,89 @@ li {
     margin-bottom:3px;
     padding: 0;
 }
+body{
+    margin-bottom: 100px;
+}
 
-button {
-	margin-bottom: 5px;
-	margin-top: 5px;
-    margin-left: 100px;
-   
-    position: relative;  
+#successMsg{
+    position:absolute;
+    margin-left:23%;
+    text-align:center;
+    color:green;
+}
+
+#error_notfound{
+    position:absolute;
+    margin-left:23%;
+    text-align:center;
+    color:red;
+}
+#friendListContainer{
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+    margin-left:20px;
+    margin-right:20px;
+    border:1px solid #ccc;
+}
+.friendBox {
+    height: 40px;
+    padding:5px;
+
+}
+.friendBox .confirmation-message{
+    float:right;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right:10px;
+}
+.friendBox #predelete{
+        width:10%;
+}
+
+.friendBox #confirm-delete{
+}
+
+.friendBox button{
+    float:right;
+    margin:0px;
+    height:100%;
+    border: 2px solid white;
+}
+
+.friendName {
+    float:left;
+    height:100%;
+    display: flex;
+    align-items: center;
+    font-size: 150%;
+}
+#friend0{
+    display: none;
+}
+#friend1{
+    /*border: 1px solid rgba(240, 173, 78, 0.6);*/
+
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(240, 173, 78, 0.6);
+    background-color: rgb(240, 173, 78); /*yellow warning*/
+    color:white;
+    margin-bottom:10px;
+}
+#friend2{
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(91, 192, 222, 0.6);
+    background-color: rgb(91, 192, 222); /*cyan info*/
+    color:white;
+    margin-bottom:10px;
+}
+#friend3{
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(217, 83, 79, 0.6);
+    background-color: rgb(217, 83, 79); /*red danger*/
+    color:white;
+    margin-bottom:10px;
+}
+#friend4{
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(51, 122, 183, 0.6);
+    background-color: rgb(51, 122, 183); /*blue primary*/
+    margin-bottom:10px;
 }
