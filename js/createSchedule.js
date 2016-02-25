@@ -173,19 +173,56 @@ function initializePageForCS() {
 }
 
 function validateForm(){
-    var day = $("form #selectDay").val();
-    var start = $("form #startTime").val();
-    var end = $("form #endTime").val();
-    console.log("day selected: " + day);
-    console.log("start at: " + start);
-    console.log("end at: " + end);
-    var start_digit = translateTime(start);
-    var end_digit = translateTime(end);
-    console.log( start_digit + " , " + end_digit );
+    var Monday=$('#Monday:checked').val();
+    var Tuesday=$('#Tuesday:checked').val();
+    var Wednesday=$('#Wednesday:checked').val();
+    var Thursday=$('#Thursday:checked').val();
+    var Friday=$('#Friday:checked').val();
+    var Saturday=$('#Saturday:checked').val();
+    var Sunday=$('#Sunday:checked').val();
+    console.log("Monday value is "+Monday);
+
+    if($("#scheduleForm input:checkbox:checked").length <= 0){
+        $('#createFeedback').html('<p style="color:red;text-align:center;">Day is not selected</p>');
+    }else{
+
+        var dayArray= [];
+
+        if (Monday!=null){
+            dayArray.push(Monday);
+
+        }
+        if (Tuesday!=null){
+            dayArray.push(Tuesday);
+        }
+        if (Wednesday!=null){
+            dayArray.push(Wednesday);
+        }
+        if (Thursday!=null){
+            dayArray.push(Thursday);
+        }
+        if (Friday!=null){
+            dayArray.push(Friday);
+        }
+        if (Saturday!=null){
+            dayArray.push(Saturday);
+        }
+        if (Sunday!=null){
+            dayArray.push(Sunday);
+        }
+        var start = $("form #startTime").val();
+        var end = $("form #endTime").val();
+        console.log("start at: " + start);
+        console.log("end at: " + end);
+        var start_digit = translateTime(start);
+        var end_digit = translateTime(end);
+        console.log( start_digit + " , " + end_digit );
     
-    var current_username = sessionStorage.getItem('currUser');
-    inputTime(current_username, day, start_digit, end_digit);
-    $('#createFeedback').html('<p style="color:green;text-align:center;">Successfully Added Event!</p>');
+        var current_username = sessionStorage.getItem('currUser');
+        inputTime(current_username, dayArray, start_digit, end_digit);
+        
+        $('#createFeedback').html('<p style="color:green;text-align:center;">Successfully Added Event!</p>');
+    }
 }
 
 
@@ -202,7 +239,7 @@ function translateTime(timeString){
     return digit;
 }
 
-function inputTime(name,day,start,end){
+function inputTime(name,dayArray,start,end){
 
     if(sessionStorage.getItem(name + '-data') === null){ //this will never happen
         console.log("no data in session storage");
@@ -222,22 +259,27 @@ function inputTime(name,day,start,end){
         var jsonObject = sessionStorage.getItem(name + '-data');
     }
     var data = JSON.parse(jsonObject);
-    console.log("data[name] is "+ data[name]);
-    console.log("data[name][day] is "+ data[name][day]);
-    var newArray = data[name][day];
+ 
+    var index;
 
-    
-    var i = start;
-    for (var i = start; i < end; i++ ){
+    for(index=0;index<dayArray.length;index++){
+        var day = dayArray[index];
+        console.log("day from array is "+day);
+        var i = start;
+        console.log("data[name][day] is "+ data[name][day]);
+
+        var newArray = data[name][day];
+        for (var i = start; i < end; i++ ){
           newArray.push(i);
+        }
+        newArray = removeDuplicates(newArray);
+        console.log("newArray before sort");
+        console.log(newArray);
+        newArray = newArray.sort(function(a, b){return a-b});
+        console.log("newArray after sort");
+        console.log(newArray);
+        data[name][day] = newArray;
     }
-    newArray = removeDuplicates(newArray);
-    console.log("newArray before sort");
-    console.log(newArray);
-    newArray = newArray.sort(function(a, b){return a-b});
-    console.log("newArray after sort");
-    console.log(newArray);
-    data[name][day] = newArray;
     
     sessionStorage.setItem(name + '-data',  JSON.stringify(data));
     window.location.href = 'mySchedule.html';
