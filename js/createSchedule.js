@@ -220,6 +220,9 @@ function validateForm(){
     
         var current_username = sessionStorage.getItem('currUser');
         inputTime(current_username, dayArray, start_digit, end_digit);
+        getAllEvents();
+
+        displayEvents();
         
         $('#createFeedback').html('<p style="color:green;text-align:center;">Successfully Added Event!</p>');
     }
@@ -282,7 +285,7 @@ function inputTime(name,dayArray,start,end){
     }
     
     sessionStorage.setItem(name + '-data',  JSON.stringify(data));
-    window.location.href = 'mySchedule.html';
+    //window.location.href = 'mySchedule.html';
 }
 
 function removeDuplicates(duplicatesArray){
