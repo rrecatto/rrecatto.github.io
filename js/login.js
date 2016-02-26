@@ -36,9 +36,18 @@ function signUpUser() {
 	sessionStorage.setItem("firstLogin","true");
         console.log("user name is : " + userName+" passWord is : " + passWord);
         //setup login
-     
+     	sessionStorage.setItem("currUser",userName);
+        if(sessionStorage[userName+"-data"]){
+           window.location.href = 'mySchedule.html';
+        }
+        else{
+           jsonObject = '{ "' + userName + '" : ' + jsonTemplate + '}' ;
+           sessionStorage.setItem(userName+"-data", jsonObject);
+                
+           window.location.href = "mySchedule.html"; //<--- change this to the landing page
+        }
         
-       window.location.href = 'index.html';
+       //window.location.href = 'index.html';
     }
         
 }
