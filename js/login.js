@@ -35,8 +35,12 @@ function signUpUser() {
         sessionStorage.setItem(userName,passWord); 
 	sessionStorage.setItem("firstLogin","true");
         console.log("user name is : " + userName+" passWord is : " + passWord);
+        //setup login
+        jsonObject = '{ "' + userName + '" : ' + jsonTemplate + '}' ;
+        sessionStorage.setItem(userName+"-data", jsonObject);
+        window.location.href = "mySchedule.html";
         
-        window.location.href = 'index.html';
+       // window.location.href = 'index.html';
     }
         
 }
@@ -63,7 +67,7 @@ function authorizeLogin() {
             console.log("user name is : " + userName+" passWord is : " + pw);
             sessionStorage.setItem("currUser",userName);
             if(sessionStorage[userName+"-data"]){
-                window.location.href = 'mySchedule.html';
+            window.location.href = 'mySchedule.html';
             }
             else{
                 jsonObject = '{ "' + userName + '" : ' + jsonTemplate + '}' ;
