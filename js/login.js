@@ -36,11 +36,9 @@ function signUpUser() {
 	sessionStorage.setItem("firstLogin","true");
         console.log("user name is : " + userName+" passWord is : " + passWord);
         //setup login
-        jsonObject = '{ "' + userName + '" : ' + jsonTemplate + '}' ;
-        sessionStorage.setItem(userName+"-data", jsonObject);
-        window.location.href = "mySchedule.html";
+     
         
-       // window.location.href = 'index.html';
+       window.location.href = 'index.html';
     }
         
 }
