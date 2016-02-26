@@ -123,8 +123,8 @@ list-style-type: none;
   display: none;
 }
 .slider img {
-  width: auto;
-  height: auto;
+  width: 50%;
+  height: 50%;
 }
 
 
