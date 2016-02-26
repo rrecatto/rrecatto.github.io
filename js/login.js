@@ -33,7 +33,7 @@ function signUpUser() {
     }else{
 
         sessionStorage.setItem(userName,passWord); 
-
+	sessionStorage.setItem("firstLogin","true");
         console.log("user name is : " + userName+" passWord is : " + passWord);
         
         window.location.href = 'index.html';
@@ -68,7 +68,7 @@ function authorizeLogin() {
             else{
                 jsonObject = '{ "' + userName + '" : ' + jsonTemplate + '}' ;
                 sessionStorage.setItem(userName+"-data", jsonObject);
-                sessionStorage.setItem("firstLogin","true");
+                
                 window.location.href = "mySchedule.html"; //<--- change this to the landing page
             }
             
