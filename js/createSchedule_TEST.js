@@ -98,9 +98,12 @@ function displayEvents() {
     console.log(indEventList);
     
     
-    var htmlStr = '';
+     var htmlStr = '';
+    var colorArray=['rgba(92, 184, 92, 1);', 'rgba(240, 173, 78, 1);', 'rgba(91, 192, 222, 1);', 'rgba(217, 83, 79, 1);', 'rgba(51, 122, 183, 1);'];
     for(var i=0; i<indEventList.length; i++) {
-        var tempStr = '<p class="indEvents" id="indEvent"'+i+'>'+indEventList[i].day+': '+translateHours[indEventList[i].start]+' to '+translateHours[indEventList[i].end]+'<button class="btn btn-danger btn-sm delEvent" id="indEventDel"'+i+' onclick="deleteEvent('+i+')"">X</button></p>';
+        var colorInd = i%5;
+        var styleStr='background-color:'+colorArray[colorInd]+'; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px '+colorArray[colorInd];
+        var tempStr = '<div class="indEvents" id="indEvent"'+i+'  style="'+styleStr+'"><p>'+indEventList[i].day+': '+translateHours[indEventList[i].start]+' to '+translateHours[indEventList[i].end]+'</p><button class="btn btn-danger btn-sm delEvent" id="indEventDel"'+i+' onclick="deleteEvent('+i+')"">X</button></div>';
         htmlStr = htmlStr+tempStr;
     }
     
