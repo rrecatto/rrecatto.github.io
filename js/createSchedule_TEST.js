@@ -190,7 +190,7 @@ function validateForm(){
     displayEvents();
     $('#createFeedback').html('<p style="color:green;text-align:center;">Successfully Added Event!</p>');
     
-    ga("send", "event", "submit", current_username);
+    ga("send", "event", "submit", current_username, "testB" );
 }
 
 
