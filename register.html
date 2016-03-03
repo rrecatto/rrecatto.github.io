@@ -14,8 +14,10 @@
       <div class="container">
           <form class="registerForm">
             <label for="inputUserName">User Name:</label>
-          <input type="text" id="regName" class="form-control" placeholder="User Name" required autofocus>
+          <input type="text" id="regName" class="form-control" placeholder="User Name" pattern="[A-Za-z].{1}" required autofocus>
           <br>
+
+          <p><strong>Note:</strong>User name should be more than one letter.(letters only)</p>
           <label for="inputPassword">Password:</label>
           <input type="password" id="regPassword" class="form-control" placeholder="Password" required>
           <br>
