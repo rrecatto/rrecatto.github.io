@@ -248,8 +248,6 @@ function validateForm(){
         //google analytics
         /* ga("send", "event", "submit", current_username, "testA"); */
 
-        
-
         }
 
     }
