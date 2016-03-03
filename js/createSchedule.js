@@ -244,8 +244,13 @@ function validateForm(){
             $("#createFeedback").slideDown();
             $("#createFeedback").delay(1500).slideUp();
         
+
         //google analytics
         /* ga("send", "event", "submit", current_username, "testA"); */
+
+        
+
+        }
 
     }
 }
