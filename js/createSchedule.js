@@ -229,8 +229,8 @@ function validateForm(){
         
         $('#createFeedback').html('<p style="color:green;text-align:center;">Successfully Added Event!</p>');
         
-        
-        ga("send", "event", "submit", current_username, "testA");
+        //google analytics
+        /* ga("send", "event", "submit", current_username, "testA"); */
     }
 }
 
