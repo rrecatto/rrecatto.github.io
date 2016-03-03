@@ -18,6 +18,7 @@ function signUpUser() {
     var pwRepeat = $('#regPasswordAgain').val();
     var testName = sessionStorage.getItem(userName);
     var letters = /^[A-Za-z]+$/;
+    var re = /^\w+$/;
     
     if(passWord==='' || pwRepeat==='' || userName==='') {
         $('#regError').html('<p style="color:red;text-align:center;">ERROR: PLEASE FILL OUT ALL FIELDS</p>');
@@ -31,8 +32,10 @@ function signUpUser() {
 
         $('#regError').html('<p style="color:red;text-align:center;">ERROR: USERNAME ALREADY EXIST</p>');
         
-    }else if(!userName.match(letters)) {
-         $('#regError').html('<p style="color:red;text-align:center;">ERROR: USERNAME CAN ONLY BE LETTERS</p>');
+    }else if(!userName.substr(0,1).match(letters)) {
+         $('#regError').html('<p style="color:red;text-align:center;">ERROR:FIRST LETTER OF USERNAME CAN ONLY BE LETTERS</p>');
+    }else if (!re.test(userName.substr(1))) {
+    	$('#regError').html('<p style="color:red;text-align:center;">ERROR:Username must contain only letters, numbers and underscores!</p>');	
     }
     else{
 
