@@ -187,6 +187,8 @@ function validateForm(){
 
     if($("#scheduleForm input:checkbox:checked").length <= 0){
         $('#createFeedback').html('<p style="color:red;text-align:center;">Day is not selected</p>');
+        $("#createFeedback").slideDown();
+        $("#createFeedback").delay(1500).slideUp();
     }else{
 
         var dayArray= [];
@@ -220,17 +222,36 @@ function validateForm(){
         var start_digit = translateTime(start);
         var end_digit = translateTime(end);
         console.log( start_digit + " , " + end_digit );
-    
-        var current_username = sessionStorage.getItem('currUser');
-        inputTime(current_username, dayArray, start_digit, end_digit);
-        getAllEvents();
+        if(start_digit>=end_digit){
+            $('#createFeedback').html('<p style="color:red;text-align:center;">Start Time can not be later then or equal to End time</p>');
+            $("#createFeedback").slideDown();
+            $("#createFeedback").delay(1500).slideUp();
 
-        displayEvents();
+        }else if(start_digit<0 || end_digit >30){
+
+            $('#createFeedback').html('<p style="color:red;text-align:center;">Time should between 07:00 AM to 10:00 PM</p>');
+            $("#createFeedback").slideDown();
+            $("#createFeedback").delay(1500).slideUp();
+        }else{
+            console.log("No error");
+            var current_username = sessionStorage.getItem('currUser');
+            inputTime(current_username, dayArray, start_digit, end_digit);
+            getAllEvents();
+
+            displayEvents();
         
-        $('#createFeedback').html('<p style="color:green;text-align:center;">Successfully Added Event!</p>');
+            $('#createFeedback').html('<p style="color:green;text-align:center;">Successfully Added Event!</p>');
+            $("#createFeedback").slideDown();
+            $("#createFeedback").delay(1500).slideUp();
         
+<<<<<<< HEAD
         //google analytics
         /* ga("send", "event", "submit", current_username, "testA"); */
+=======
+        
+            ga("send", "event", "submit", current_username, "testA");
+        }
+>>>>>>> c9e8845c0ebbceda5a54d1b3d89d6458563b22bf
     }
 }
 

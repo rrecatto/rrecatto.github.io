@@ -17,6 +17,7 @@ function signUpUser() {
     var passWord = $('#regPassword').val();
     var pwRepeat = $('#regPasswordAgain').val();
     var testName = sessionStorage.getItem(userName);
+    var letters = /^[A-Za-z]+$/;
     
     if(passWord==='' || pwRepeat==='' || userName==='') {
         $('#regError').html('<p style="color:red;text-align:center;">ERROR: PLEASE FILL OUT ALL FIELDS</p>');
@@ -30,10 +31,13 @@ function signUpUser() {
 
         $('#regError').html('<p style="color:red;text-align:center;">ERROR: USERNAME ALREADY EXIST</p>');
         
-    }else{
+    }else if(!userName.match(letters)) {
+         $('#regError').html('<p style="color:red;text-align:center;">ERROR: USERNAME CAN ONLY BE LETTERS</p>');
+    }
+    else{
 
         sessionStorage.setItem(userName,passWord); 
-	sessionStorage.setItem("firstLogin","true");
+	    sessionStorage.setItem("firstLogin","true");
         console.log("user name is : " + userName+" passWord is : " + passWord);
         //setup login
      	sessionStorage.setItem("currUser",userName);

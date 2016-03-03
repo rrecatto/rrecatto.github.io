@@ -20,6 +20,12 @@ body{
     text-align:center;
     color:red;
 }
+#error_addCurrUser{
+    position:absolute;
+    margin-left:23%;
+    text-align:center;
+    color:red;
+}
 #friendListContainer{
     padding-left:10px;
     padding-right:10px;

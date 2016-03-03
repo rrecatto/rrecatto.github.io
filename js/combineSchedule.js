@@ -82,7 +82,15 @@ function combineFunction() {
     console.log("exampleData = " + userData);
     console.log(typeof(userData));
     var friendUsername = $("#friendUsername").val();
-    if(sessionStorage.getItem(friendUsername + '-data') != null){
+    if (friendUsername == current_username){
+        console.log("friend "+ friendUsername);
+        console.log("current_user"+ current_username);
+        $('#error_addCurrUser').slideDown();
+        $("#error_addCurrUser").delay(1500).slideUp();
+        return -1;
+
+    }
+    else if(sessionStorage.getItem(friendUsername + '-data') != null){
         var friendJson = sessionStorage.getItem(friendUsername+"-data");
         var friendData = JSON.parse(friendJson);
         //console.log(JSON.stringify(friendData));
