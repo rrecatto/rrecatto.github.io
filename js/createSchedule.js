@@ -244,14 +244,9 @@ function validateForm(){
             $("#createFeedback").slideDown();
             $("#createFeedback").delay(1500).slideUp();
         
-<<<<<<< HEAD
         //google analytics
         /* ga("send", "event", "submit", current_username, "testA"); */
-=======
-        
-            ga("send", "event", "submit", current_username, "testA");
-        }
->>>>>>> c9e8845c0ebbceda5a54d1b3d89d6458563b22bf
+
     }
 }
 
