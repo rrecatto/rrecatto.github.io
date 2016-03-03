@@ -18,6 +18,7 @@ function signUpUser() {
     var pwRepeat = $('#regPasswordAgain').val();
     var testName = sessionStorage.getItem(userName);
     var letters = /^[A-Za-z]+$/;
+    var re = /^\w+$/;
     
     if(passWord==='' || pwRepeat==='' || userName==='') {
         $('#regError').html('<p style="color:red;text-align:center;">ERROR: PLEASE FILL OUT ALL FIELDS</p>');
@@ -33,6 +34,8 @@ function signUpUser() {
         
     }else if(!userName.match(letters)) {
          $('#regError').html('<p style="color:red;text-align:center;">ERROR: USERNAME CAN ONLY BE LETTERS</p>');
+    }else if (!re.test(userName.substr(1))) {
+    	$('#regError').html('<p style="color:red;text-align:center;">ERROR:Username must contain only letters, numbers and underscores!</p>');	
     }
     else{
 
