@@ -13,7 +13,10 @@ body{
     text-align:center;
     color:green;
 }
-
+.combinecontainer{
+    margin-left:20px;
+    margin-right:20px;
+}
 #error_notfound{
     position:absolute;
     margin-left:23%;
@@ -26,6 +29,20 @@ body{
     text-align:center;
     color:red;
 }
+#combineButton{
+    width:60%;
+    margin-left:20%;
+    margin-right:20%;
+}
+#successmsg{
+    display:none; 
+    position:absolute; 
+    color:rgba(92, 184, 92, 1);
+    margin-left:28%;
+    text-align:center;
+}
+
+
 #friendListContainer{
     padding-left:10px;
     padding-right:10px;

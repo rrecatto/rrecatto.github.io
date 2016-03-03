@@ -41,8 +41,8 @@ $(document).ready(function() {
             console.log('error occured when adding friend');
         }
         else{
-            $("#successMsg").slideDown();
-            $("#successMsg").delay(1500).slideUp();
+            $("#successmsg").fadeIn();
+            $("#successmsg").delay(1200).fadeOut();
             displayFriendList2();
         }
 

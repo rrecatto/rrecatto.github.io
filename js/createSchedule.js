@@ -90,6 +90,7 @@ function displayEvents() {
     
     var indEventList = [];
     for(var i=0; i<dayList.length;i++) {
+        
         var tempIndEvent = new indEvent(dayList[i], startList[i], endList[i]);
         
         indEventList.push(tempIndEvent);
@@ -106,7 +107,6 @@ function displayEvents() {
         var tempStr = '<div class="indEvents" id="indEvent"'+i+'  style="'+styleStr+'"><p>'+indEventList[i].day+': '+translateHours[indEventList[i].start]+' to '+translateHours[indEventList[i].end]+'</p><button class="btn btn-danger btn-sm delEvent" id="indEventDel"'+i+' onclick="deleteEvent('+i+')"">X</button></div>';
         htmlStr = htmlStr+tempStr;
     }
-    
     console.log(htmlStr);
     if (!(eventsString==="")) {   
         $('#eventListContainer').html(htmlStr);
@@ -186,11 +186,10 @@ function validateForm(){
     console.log("Monday value is "+Monday);
 
     if($("#scheduleForm input:checkbox:checked").length <= 0){
-        $('#createFeedback').html('<p style="color:red;text-align:center;">Day is not selected</p>');
-        $("#createFeedback").slideDown();
-        $("#createFeedback").delay(1500).slideUp();
+        $("#days-errormsg").slideDown();
+        $("#days-errormsg").delay(1500).slideUp();
     }else{
-
+        $("#days-errormsg").hide();
         var dayArray= [];
 
         if (Monday!=null){
@@ -223,15 +222,16 @@ function validateForm(){
         var end_digit = translateTime(end);
         console.log( start_digit + " , " + end_digit );
         if(start_digit>=end_digit){
-            $('#createFeedback').html('<p style="color:red;text-align:center;">Start Time can not be later then or equal to End time</p>');
-            $("#createFeedback").slideDown();
-            $("#createFeedback").delay(1500).slideUp();
+            
+            $('#time-errormsg').html('<p style="color:red;text-align:center;">Input time from earlier to later</p>');
+            $("#time-errormsg").slideDown();
+            $("#time-errormsg").delay(1500).slideUp();
 
         }else if(start_digit<0 || end_digit >30){
 
-            $('#createFeedback').html('<p style="color:red;text-align:center;">Time should between 07:00 AM to 10:00 PM</p>');
-            $("#createFeedback").slideDown();
-            $("#createFeedback").delay(1500).slideUp();
+            $('#time-errormsg').html('<p style="color:red;text-align:center;">Input time between 7am and 10pm</p>');
+            $("#time-errormsg").slideDown();
+            $("#time-errormsg").delay(1500).slideUp();
         }else{
             console.log("No error");
             var current_username = sessionStorage.getItem('currUser');
@@ -239,11 +239,8 @@ function validateForm(){
             getAllEvents();
 
             displayEvents();
-        
-            $('#createFeedback').html('<p style="color:green;text-align:center;">Successfully Added Event!</p>');
-            $("#createFeedback").slideDown();
-            $("#createFeedback").delay(1500).slideUp();
-        
+        $('#successmsg').fadeIn();
+        $('#successmsg').delay(1200).fadeOut();
 
         //google analytics
         /* ga("send", "event", "submit", current_username, "testA"); */

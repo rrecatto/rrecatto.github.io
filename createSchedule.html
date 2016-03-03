@@ -32,38 +32,69 @@
 
         <div class="createScheduleForm">       
             <h2>What times are you busy?</h2>
-            <p>Enter the times you are busy:</p>
+            <br>
             
             <form id="scheduleForm" name="scheduleForm" action="" method="POST">
 
-
-                  
-                    <input type="checkbox" id ="Monday"value="mon">Monday
-                    <input type="checkbox" id ="Tuesday" value="tue">Tuesday
-                    <input type="checkbox" id ="Wednesday" value="wed">Wednesday
-                    <input type="checkbox" id ="Thursday" value="thu">Thursday
-                    <input type="checkbox" id ="Friday" value="fri">Friday
-                    <input type="checkbox" id ="Saturday" value="sat">Saturday
-                    <input type="checkbox" id ="Sunday" value="sun">Sunday
-
-                <label for="startTime">Begin at:</label>
-                <input type="time" id="startTime" class="form-control" step="1800" value="07:00" name="start" required autofocus>
+                <label for="day-checkboxes">Days:</label>
                 <br>
-                <label for="endTime">End at:</label>
-                <input type="time" id="endTime" class="form-control" name="end" step="1800" value="08:00" required>
+                
+                  <div id="day-checkboxes" class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary">
+                        <input id="Monday" value="mon" type="checkbox" autocomplete="off">Mon</input>
+                    </label>
+                    <label class="btn btn-primary">
+                        <input id="Tuesday" value="tue" type="checkbox" autocomplete="off">Tue</input>
+                    </label>
+                    <label class="btn btn-primary">
+                        <input id="Wednesday" value="wed" type="checkbox" autocomplete="off">Wed</input>
+                    </label>
+                    <label class="btn btn-primary">
+                        <input id="Thursday" value="thu" type="checkbox" autocomplete="off">Thu</input>
+                    </label>
+                    <label class="btn btn-primary">
+                        <input id="Friday" value="fri" type="checkbox" autocomplete="off">Fri</input>
+                    </label>
+                    <label class="btn btn-primary">
+                        <input id="Saturday" value="sat" type="checkbox" autocomplete="off">Sat</input>
+                    </label>
+                    <label class="btn btn-primary">
+                        <input id="Sunday" value="sun" type="checkbox" autocomplete="off">Sun</input>
+                    </label>
+                  </div>
                 <br>
-                <input type="button" class="btn btn-primary" id="submitButton" value="Submit" onclick="validateForm();">
-                <input type="button" class="btn btn-primary" id ="cancelButn"  value="Cancel"  onclick="cancel()" style="margin-left:20px">
+                
+                <div style="position:absolute;">&nbsp;</div>
+                <div id="days-errormsg" style="display:none; color:red; position:absolute;">Please select a day</div>
+                <br>
+                
+                <table id="from-to-table">
+                    <tbody>
+                        <tr>
+                            <td id="from-td">
+                                <label id="start-label" for="startTime">From:</label>
+                                <input type="time" id="startTime" class="form-control" step="1800" value="07:00" name="start" required autofocus>
+                            </td>
+                            <td id="to-td">
+                                <label id="end-label" for="endTime">To:</label>
+                                <input type="time" id="endTime" class="form-control" name="end" step="1800" value="08:00" required>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div id="time-errormsg" style="position:absolute"></div>
+                <br>
+                <input type="button" class="btn btn-primary btn-lg" id="submitButton" value="Add to Schedule" onclick="validateForm();">
+               <!--  <input type="button" class="btn btn-primary btn-lg" id ="cancelButton"  value="See my Schedule"  onclick="cancel()">  -->
             </form>
-            <div id="createFeedback"></div>
-            <div id="error_notfound" style="display:none;"><p>Could Not Find Username</p></div>
             
-
+            <div id="successmsg">Successfully added time!</div>
+            <br>
           </div>
-          
     </div>
       
-      <div id="eventListContainer">
+    <div id="eventListContainer">
         <!--handlebars here-->
     </div>
       
