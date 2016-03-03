@@ -32,7 +32,7 @@ function signUpUser() {
 
         $('#regError').html('<p style="color:red;text-align:center;">ERROR: USERNAME ALREADY EXIST</p>');
         
-    }else if(!userName.match(letters)) {
+    }else if(!userName.substr(0,1).match(letters)) {
          $('#regError').html('<p style="color:red;text-align:center;">ERROR: USERNAME CAN ONLY BE LETTERS</p>');
     }else if (!re.test(userName.substr(1))) {
     	$('#regError').html('<p style="color:red;text-align:center;">ERROR:Username must contain only letters, numbers and underscores!</p>');	
