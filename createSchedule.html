@@ -1,7 +1,7 @@
 <html lang="en">
   <head>
     <!-- Google Analytics Content Experiment code -->
-    <script>function utmx_section(){}function utmx(){}(function(){var
+<!--     <script>function utmx_section(){}function utmx(){}(function(){var
     k='117661119-6',d=document,l=d.location,c=d.cookie;
     if(l.search.indexOf('utm_expid='+k)>0)return;
     function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
@@ -12,7 +12,7 @@
     '&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
     valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
     '" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
-    </script><script>utmx('url','A/B');</script>
+    </script><script>utmx('url','A/B');</script> -->
     <!-- End of Google Analytics Content Experiment code -->
 
     <meta charset="utf-8">
@@ -21,7 +21,7 @@
     <title>uDown</title>
     <!-- Link Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
     <link href="css/createSchedule.css" rel="stylesheet">
 
   </head>
@@ -29,12 +29,14 @@
     <div id="navbar">{{navbar}}</div>
       
     <div class="createContent">
+
         <div class="createScheduleForm">       
             <h2>What times are you busy?</h2>
             <p>Enter the times you are busy:</p>
             
             <form id="scheduleForm" name="scheduleForm" action="" method="POST">
-                <div class="form-group">
+
+
                   
                     <input type="checkbox" id ="Monday"value="mon">Monday
                     <input type="checkbox" id ="Tuesday" value="tue">Tuesday
@@ -43,8 +45,7 @@
                     <input type="checkbox" id ="Friday" value="fri">Friday
                     <input type="checkbox" id ="Saturday" value="sat">Saturday
                     <input type="checkbox" id ="Sunday" value="sun">Sunday
-                    
-                </div>
+
                 <label for="startTime">Begin at:</label>
                 <input type="time" id="startTime" class="form-control" step="1800" value="07:00" name="start" required autofocus>
                 <br>
@@ -79,6 +80,7 @@
        -->
        
     <!--Libraries-->
+
     <script src="lib/jquery-1.12.1.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
     <script src="lib/handlebars-v4.0.5.js"></script>

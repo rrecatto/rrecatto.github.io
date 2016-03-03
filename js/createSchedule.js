@@ -320,6 +320,5 @@ function removeDuplicates(duplicatesArray){
     return uniqueArray;
 }
 function cancel(){
-
     window.location.href = 'mySchedule.html';
 }
