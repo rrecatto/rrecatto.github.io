@@ -11,6 +11,14 @@ $(document).ready(function() {
 
     displayEvents();
 
+    var firstLogin = sessionStorage.getItem("firstLogin");
+    console.log ("in function");
+    if(firstLogin=="true"){
+
+        $('#landingModal').modal('show');
+        sessionStorage.setItem("firstLogin","false");
+    }
+
     
 });
 
@@ -105,7 +113,7 @@ function displayEvents() {
     for(var i=0; i<indEventList.length; i++) {
         var colorInd = dayListTranslate.indexOf(indEventList[i].day);
         var styleStr='background-color:'+colorArray[colorInd]+'; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px '+colorArray[colorInd];
-        var tempStr = '<div class="indEvents" id="indEvent"'+i+'  style="'+styleStr+'"><p>'+indEventList[i].day+': '+translateHours[indEventList[i].start]+' to '+translateHours[indEventList[i].end]+'</p><button class="btn btn-danger btn-sm delEvent" id="indEventDel"'+i+' onclick="deleteEvent('+i+')"">X</button></div>';
+        var tempStr = '<div class="indEvents" id="indEvent"'+i+'  style="'+styleStr+'"><p>'+indEventList[i].day+': '+translateHours[indEventList[i].start]+' to '+translateHours[indEventList[i].end]+'</p><button class="btn btn-danger btn-sm delEvent" id="indEventDel"'+i+' onclick="deleteModal('+i+')">X</button></div>';
         htmlStr = htmlStr+tempStr;
     }
     console.log(htmlStr);
@@ -117,7 +125,20 @@ function displayEvents() {
     }
 }
 
-function deleteEvent(index) {
+
+function deleteModal(ind) {
+    
+    $('#fullPage').attr('hidden', false);
+    $('#fullPage').attr('title', ind);
+    
+}
+
+function cancelDelete() {
+    $('#fullPage').attr('hidden', true);
+}
+
+function deleteEvent() {
+    var index = $('#fullPage').attr('title');
     console.log(index);
         
     
@@ -320,3 +341,35 @@ function removeDuplicates(duplicatesArray){
 function cancel(){
     window.location.href = 'mySchedule.html';
 }
+
+
+
+var currentIndex = 0,
+  items = $('.slider div'),
+  itemAmt = items.length;
+
+function cycleItems() {
+  var item = $('.slider div').eq(currentIndex);
+  items.hide();
+  item.css('display','inline-block');
+}
+
+
+
+$('.control_next').click(function() {
+  
+  currentIndex += 1;
+  if (currentIndex > itemAmt - 1) {
+    currentIndex = 0;
+  }
+  cycleItems();
+});
+
+$('.control_prev').click(function() {
+ 
+  currentIndex -= 1;
+  if (currentIndex < 0) {
+    currentIndex = itemAmt - 1;
+  }
+  cycleItems();
+});

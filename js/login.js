@@ -45,13 +45,13 @@ function signUpUser() {
         //setup login
      	sessionStorage.setItem("currUser",userName);
         if(sessionStorage[userName+"-data"]){
-           window.location.href = 'mySchedule.html';
+           window.location.href = 'createSchedule.html';
         }
         else{
            jsonObject = '{ "' + userName + '" : ' + jsonTemplate + '}' ;
            sessionStorage.setItem(userName+"-data", jsonObject);
                 
-           window.location.href = "mySchedule.html"; //<--- change this to the landing page
+           window.location.href = "createSchedule.html"; //<--- change this to the landing page
         }
         
        //window.location.href = 'index.html';

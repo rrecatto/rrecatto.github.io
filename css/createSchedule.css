@@ -1,7 +1,4 @@
 
-
-
-
 #error_outRange{
     position:absolute;
     margin-left:23%;
@@ -112,6 +109,100 @@ margin-top:0px;
     border: 2px solid white;
 }
 
+#fullPage {
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(50,50,50,.6);
+}
+
+#deleteConfirm {
+    background-color: #222;
+    color: white; 
+    padding-right: 12%;
+    padding-left: 12%;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    position: absolute;
+    text-align: center;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 36%;
+    left: 13%;
+}
+
+#deleteConfirm h4 {
+    padding-bottom: 8px;
+}
+
+#deleteConfirm .delBtn {
+    margin-right: 25px;
+}
+
 body {
     padding-bottom:100px;
+}
+
+
+
+.slider {
+  max-width: 400px;
+  background-color: black;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.slider div {
+  background-color: white;
+  width: 100%;
+  display: inline-block;
+  display: none;
+}
+.slider img {
+  width: 50%;
+  height: 50%;
+}
+
+
+
+
+a.control_prev, a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: #2a2a2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+a.control_prev:hover, a.control_next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+}
+
+a.control_prev {
+  left: 0;
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.modal-dialog{
+    position: center;
 }
