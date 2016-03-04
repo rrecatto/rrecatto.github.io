@@ -105,7 +105,7 @@ function displayEvents() {
     for(var i=0; i<indEventList.length; i++) {
         var colorInd = dayListTranslate.indexOf(indEventList[i].day);
         var styleStr='background-color:'+colorArray[colorInd]+'; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px '+colorArray[colorInd];
-        var tempStr = '<div class="indEvents" id="indEvent"'+i+'  style="'+styleStr+'"><p>'+indEventList[i].day+': '+translateHours[indEventList[i].start]+' to '+translateHours[indEventList[i].end]+'</p><button class="btn btn-danger btn-sm delEvent" id="indEventDel"'+i+' onclick="deleteEvent('+i+')"">X</button></div>';
+        var tempStr = '<div class="indEvents" id="indEvent"'+i+'  style="'+styleStr+'"><p>'+indEventList[i].day+': '+translateHours[indEventList[i].start]+' to '+translateHours[indEventList[i].end]+'</p><button class="btn btn-danger btn-sm delEvent" id="indEventDel"'+i+' onclick="deleteModal('+i+')">X</button></div>';
         htmlStr = htmlStr+tempStr;
     }
     console.log(htmlStr);
@@ -117,7 +117,20 @@ function displayEvents() {
     }
 }
 
-function deleteEvent(index) {
+
+function deleteModal(ind) {
+    
+    $('#fullPage').attr('hidden', false);
+    $('#fullPage').attr('title', ind);
+    
+}
+
+function cancelDelete() {
+    $('#fullPage').attr('hidden', true);
+}
+
+function deleteEvent() {
+    var index = $('#fullPage').attr('title');
     console.log(index);
         
     

@@ -27,7 +27,6 @@
   </head>
   <body>
     <div id="navbar">{{navbar}}</div>
-      
     <div class="createContent">
 
         <div class="createScheduleForm">       
@@ -91,6 +90,14 @@
             
             <div id="successmsg">Successfully added time!</div>
             <br>
+            <div hidden="true" id="fullPage">
+                <div id="deleteConfirm">
+                    <h4>Are you sure?</h4>
+                    <button class="delBtn btn btn-small btn-danger" onclick="deleteEvent()">Delete</button>
+                    <button class="btn btn-small btn-primary" onclick="cancelDelete()">Cancel</button>
+                </div>
+            </div>
+            
           </div>
     </div>
       
