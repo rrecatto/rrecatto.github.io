@@ -30,15 +30,6 @@ var scheduleData = JSON.parse(exampleData);
 $(document).ready(function() {
 	console.log("Javascript connected!");
     //for first login, show landing page
-      var firstLogin = sessionStorage.getItem("firstLogin");
-    console.log ("in function");
-    if(firstLogin=="true"){
-
-        $('#landingModal').modal('show');
-        sessionStorage.setItem("firstLogin","false");
-    }
-
-    
     
     drawFriends();
     drawTables();
