@@ -20,8 +20,9 @@
             <form class="formCombine">
                 <label for="friendUsername">Your Friend's Username:</label>
                 <input id="friendUsername" class="form-control" placeholder="Username" required autofocus>
+                <div id="error_toomany" style="display:none;"><p>Your Friendlist is full!</p></div>
                 <div id="error_notfound" style="display:none;"><p>Could Not Find Username</p></div>
-                <div id="error_addCurrUser" style="display:none;"><p>Could Not Add Yourself as a Friend</p></div>
+                <div id="error_addCurrUser" style="display:none;"><p>You're already your own friend!</p></div>
                 <br>
                 <button id="combineButton" type="submit" class="btn btn-primary btn-lg">Combine!</button>
 

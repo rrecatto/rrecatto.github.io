@@ -2,7 +2,6 @@
 var current_username = sessionStorage.getItem("currUser");
 var userJson = sessionStorage.getItem(current_username + '-data');
 var userData = JSON.parse(userJson);
-
 $(document).ready(function() {
     //display friend list
     displayFriendList2();
@@ -79,8 +78,10 @@ function firstObj(obj) {
 
 function combineFunction() {
     //get currennt user's  json object name
+    
     console.log("exampleData = " + userData);
     console.log(typeof(userData));
+    var num_friends = Object.keys(userData).length;
     var friendUsername = $("#friendUsername").val();
     if (friendUsername == current_username){
         console.log("friend "+ friendUsername);
@@ -89,6 +90,13 @@ function combineFunction() {
         $("#error_addCurrUser").delay(1500).slideUp();
         return -1;
 
+    }
+    
+    else if(num_friends > 4){
+        
+        $('#error_toomany').slideDown();
+        $("#error_toomany").delay(1500).slideUp();
+        return -1;
     }
     else if(sessionStorage.getItem(friendUsername + '-data') != null){
         var friendJson = sessionStorage.getItem(friendUsername+"-data");
@@ -101,8 +109,6 @@ function combineFunction() {
         
         var newData = JSON.stringify(userData);
         sessionStorage.setItem(current_username + '-data' , newData);
-    // add friend list
-       //displayFriendList();
 
     } else {
         $('#error_notfound').slideDown();

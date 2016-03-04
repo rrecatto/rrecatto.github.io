@@ -1,7 +1,12 @@
 body{
     margin-bottom:100px;
 }
-
+h2 {
+    margin-top:15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom:0px;
+}
 .nav-justified > li {
       display: table-cell;
       width: 1%;
@@ -14,9 +19,12 @@ body{
 }
 
 #friend-filter ul {
-margin: 0;
 padding: 0;
+margin:0;
 list-style-type: none;
+}
+#friend-list .btn{
+    margin-bottom:3px;
 }
 
 #friend-filter ul li { display: inline; }

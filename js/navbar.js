@@ -18,11 +18,10 @@ $(document).ready(function() {
 })
 
 function initializeNav() {
-    var htmlStr = '<ul class="navUL"><li class="navLI"><a class="border" href="createSchedule.html">Add Events</a></li><li class="navLI"><a class="border"  href="combineSchedule.html">Add Friends</a></li><li class="navLI" id="lastNav"><a href="mySchedule.html">Schedule</a></li><ul class="navUL" style="float:right;list-style-type:none;"><li class="navLI"><button id="logoutButton" onclick="logout()" style="float:right;" class="navbar-btn">Log Out</button></li></ul></ul><br>';
     var htmlStr2 = 
-    '<nav class="navbar navbar-default">\
-        <div class="container-fluid">\
-            <ul class="nav navbar-nav">\
+    '<nav id= "navbar" class="navbar navbar-default">\
+        <div id="navbar-container" class="container-fluid">\
+            <ul id="navbar-ul" class="nav navbar-nav">\
                 <li id="nav_create"><a href="createSchedule.html">Times</a></li>\
                 <li id="nav_combine"><a href="combineSchedule.html">Friends</a></li> \
                 <li id="nav_schedule"><a href="mySchedule.html">Schedules</a></li> \

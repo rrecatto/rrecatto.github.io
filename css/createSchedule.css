@@ -1,3 +1,7 @@
+
+
+
+
 #error_outRange{
     position:absolute;
     margin-left:23%;
@@ -52,12 +56,17 @@ margin-top:0px;
     padding-top:10px;
     padding-bottom:10px;
     font-weight:bold;
+    color: #014682;
+    border-color: #ccc;
 }
 #day-checkboxes .active{
-    background-color:#014682;
+    background-color:#337ab7;
+    color:white;
+    border-color:#337ab7;
 }
 #day-checkboxes .btn:not(.active){
-    background-color: #337ab7;
+    background-color: white;
+    
 }
 @media only screen and (max-device-width: 370px) {
     #day-checkboxes .btn {

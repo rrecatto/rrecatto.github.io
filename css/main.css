@@ -3,16 +3,27 @@ img {
     height: auto;
 }
 
-
-.navbar-nav>li, .navbar-nav {
+#navbar{
+    height:50px;
+    margin-bottom:15px;
+}
+#navbar-container{
+    height:100%;
+}
+#navbar-ul{
+    margin-bottom:0;
+}
+#navbar .navbar-nav>li, .navbar-nav {
 float: left;
 }
-.navbar-right {
+#navbar .navbar-right {
 float: right!important;
 }
-.navbar-right>li button{
-    margin:5px;
+#navbar .navbar-right>li button{
+    margin-right:10px;
+    
 }
+
 
 
 #logoutButton {
