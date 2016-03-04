@@ -6,33 +6,21 @@ $(document).ready(function() {
     //display friend list
     displayFriendList2();
 
-
+    var buttonid;
     $(document.body).on('click', '.friendBox .delete', function(){
-        //turn the button into a sure delete button
-        var delete_id = this.id; //should be delete-friend1
-        var name_to_delete = delete_id.split("-").pop(); //friend1
-        console.log("name to delete: " + name_to_delete);
-        $(".friendBox #confirmation-message-" + name_to_delete).slideToggle();
-        $(".friendBox #delete-" + name_to_delete).addClass("confirm-delete");
-        $(".friendBox #delete-" + name_to_delete).removeClass("delete");
+        $('#fullPage').show();
+        buttonid = this.id;
+
+        $('#cancel-delete').click(function(){
+            $('#fullPage').hide();
+        });
         
     });
-    $(document.body).on('click', '.friendBox .confirm-delete', function(){
-        /*
-        var row = document.getElementById(this.id);
-        row.parentNode.removeChild(row);
-        var currentUser = sessionStorage.getItem("currUser");
-        var userJData =JSON.parse(sessionStorage.getItem(currentUser + '-data'));
-        */
-        var button_id = this.id; //should be delete-friend1
-        var name_to_delete = button_id.split("-").pop();
-        console.log("deleting id: " + name_to_delete);
-        delete userData[name_to_delete];
-        var newJData = JSON.stringify(userData);
-        sessionStorage.setItem(current_username + '-data' , newJData);
-        displayFriendList2();
+    $('#confirm-delete').click(function(){
+        console.log("button-id = " + buttonid);
+        deleteFriend(buttonid);
+        $('#fullPage').hide();
     });
-
 
     $("#combineButton").click(function(e){
         e.preventDefault();
@@ -47,7 +35,20 @@ $(document).ready(function() {
 
     });
 });
-
+function deleteFriend(btnID){
+    current_username = sessionStorage.getItem("currUser");
+    userJson = sessionStorage.getItem(current_username + '-data');
+    userData = JSON.parse(userJson);
+    console.log("userdata before:"); console.log(userData);
+    var button_id = btnID; //should be delete-friend1
+    var name_to_delete = button_id.split("-").pop();
+    console.log("deleting id: " + name_to_delete);
+    delete userData[name_to_delete];
+    console.log("userdata after:"); console.log(userData);
+    var newJData = JSON.stringify(userData);
+    sessionStorage.setItem(current_username + '-data' , newJData);
+    displayFriendList2();
+}
 /*
 
 var jsonObject = '{ "friend1" : { \
@@ -78,7 +79,9 @@ function firstObj(obj) {
 
 function combineFunction() {
     //get currennt user's  json object name
-    
+    current_username = sessionStorage.getItem("currUser");
+    userJson = sessionStorage.getItem(current_username + '-data');
+    userData = JSON.parse(userJson);
     console.log("exampleData = " + userData);
     console.log(typeof(userData));
     var num_friends = Object.keys(userData).length;
@@ -115,48 +118,6 @@ function combineFunction() {
         $("#error_notfound").delay(1500).slideUp();
         return -1;
     }
-    /*var email = $('#combineEmail');
-    
-    if(email != "friend1") {
-        $('#comError').html('<p style="color:red;text-align:center;">ERROR: PLEASE ENTER BOTH EMAIL AND PASSWORD</p>');
-        console.log("here");
-    }
-    else {
-        var friendToCombineWith = '{ "friend1" : { \
-                                "mon" : [0,1,2,5,9,10], \
-                                "tue" : [0,3,4,5], \
-                                "wed" : [1,4,2], \
-                                "thu" : [8], \
-                                "fri" : [7], \
-                                "sat" : [6], \
-                                "sun" : [5]  \
-                                },';
-    }*/
-    //sessionStorage.setItem('example', newData);
-   
-
-}
-
-function displayFriendList(){
- var current_user = sessionStorage.getItem("currUser");
- userData = JSON.parse(sessionStorage.getItem(current_user + '-data'));
- var friendName = $('#friendUsername').val()+' <a href="#">x</a>';
-
- $.each(userData,function(key,value){
-    if(key!=current_user){
-        console.log("here");
-        var tr;
-        tr = $('<tr id='+key+' />');
-        tr.append("<td>"+key+"</td>");
-        tr.append("<td>"+'<button id="'+key+'">x</button>'+"</td>");
-        $('#friendList').append(tr);
-    }
-});
-
-    //$('#friendList').append('<tr>'+'<td>'+key+'</td><td><button id="'+key+'">x</button>'+'</td></tr>');});
-
-//$('<li />', {html: friendName}).appendTo('ul.friendList');
-
 }
 
 function displayFriendList2(){
@@ -173,7 +134,6 @@ function displayFriendList2(){
     if(num_friends < 2){ //num_friends includes yourself
         $("#friendlistContainer").html("<p style='text-align:center; color: #ccc'>Empty</p>");
     }
-    
 }
 
 
