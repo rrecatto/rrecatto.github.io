@@ -1,4 +1,6 @@
-
+body{
+    margin-bottom:100px;
+}
 
 .nav-justified > li {
       display: table-cell;
@@ -23,10 +25,11 @@ list-style-type: none;
 .content-wrapper{
     border: 1px solid rgba(140, 140, 140, .5);
     border-radius: 5px;
-    margin-right:5%;
-    margin-left: 5%;
-    padding-left: 14px;
-    padding-right: 14px;
+    margin-top: 10px;
+    padding-top:10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom:10px;
 } /*this extra thing right here is necessary idk why*/
 } /*dont delete this pls*/
 .tab-pane {
@@ -51,7 +54,7 @@ list-style-type: none;
 .line { 
 
     border-top: 1px solid;
-    border-color: rgba(140, 140, 140, .5);
+    border-color: rgba(200, 200, 200, 1);
 }
 .top-of-block {
     border-top-left-radius : 7px;
