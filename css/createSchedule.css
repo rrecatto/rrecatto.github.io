@@ -167,8 +167,9 @@ body {
   display: none;
 }
 .slider img {
-  width: 50%;
-  height: 50%;
+  width: auto;
+  height: auto;
+  padding: 40px;
 }
 
 
