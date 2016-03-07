@@ -240,8 +240,8 @@ function validateForm(){
         var end = $("form #endTime").val();
         console.log("start at: " + start);
         console.log("end at: " + end);
-        var start_digit = translateTime(start);
-        var end_digit = translateTime(end);
+        var start_digit = translateStartTime(start);
+        var end_digit = translateEndTime(end);
         console.log( start_digit + " , " + end_digit );
         if(start_digit>=end_digit){
             
@@ -274,17 +274,36 @@ function validateForm(){
 
 
 /*translate time to 0-30 number*/
-function translateTime(timeString){
+function translateStartTime(timeString){
     var times = timeString.split(":");
     var hour = times[0];
     var minute = times[1];
     //console.log("hour: " + hour + " , minute: " + minute );
     var digit = (hour - 7 ) * 2 
-    if(minute == 30){
-        digit +=1;
+    if(minute < 30 && minute>=0){
+        digit +=0;
+    }else{
+        digit+=1;
     }
     return digit;
 }
+function translateEndTime(timeString){
+    var times = timeString.split(":");
+    var hour = times[0];
+    var minute = times[1];
+    //console.log("hour: " + hour + " , minute: " + minute );
+    var digit = (hour - 7 ) * 2
+    if (minute==0){
+        digit+=0;    
+    }else 
+    if(minute <=30 && minute>0){
+        digit +=1;
+    }else{
+        digit +=2;
+    }
+    return digit;
+}
+
 
 function inputTime(name,dayArray,start,end){
 
