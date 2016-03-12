@@ -21,8 +21,11 @@
 //var data = JSON.parse(jsonObject);
 //sessionStorage.setItem('example', jsonObject);
 var current_username = sessionStorage.getItem("currUser");
+console.log("current_username " + current_username);
 var exampleData = sessionStorage.getItem(current_username + '-data');
+console.log("exampleData " + exampleData);
 var scheduleData = JSON.parse(exampleData);
+
 
 
                 

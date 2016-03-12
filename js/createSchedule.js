@@ -1,5 +1,7 @@
 'use strict';
 //GLOBALS
+var ref = new Firebase("https://freeup.firebaseio.com/");
+var authData = ref.getAuth();
 
 
 // Call this function when the page loads (the "ready" event)
@@ -11,14 +13,19 @@ $(document).ready(function() {
 
     displayEvents();
 
-    var firstLogin = sessionStorage.getItem("firstLogin");
-    console.log ("in function");
-    if(firstLogin=="true"){
+    ref.child('users').child(authData.uid).on("value", function(snapshot) {
+        console.log(snapshot.val());
+        var firstLogin=snapshot.val().firstLogin;
+        if(firstLogin==true){
+            $('#landingModal').modal('show');
+            ref.child('users').child(authData.uid).update({
+                firstLogin:false
+            });
+        }
 
-        $('#landingModal').modal('show');
-        sessionStorage.setItem("firstLogin","false");
-    }
-
+    }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
     
 });
 
@@ -167,6 +174,10 @@ function deleteEvent() {
     userSched[userString].dayShort = dayEvents;
     
     sessionStorage[userString+'-data']=JSON.stringify(userSched);
+     var eventString=JSON.stringify(userSched);
+     ref.child('users').child(authData.uid).update({
+         events:eventString
+     });
     location.reload();
 }
 
@@ -261,8 +272,8 @@ function validateForm(){
             getAllEvents();
 
             displayEvents();
-        $('#successmsg').fadeIn();
-        $('#successmsg').delay(1200).fadeOut();
+            $('#successmsg').fadeIn();
+            $('#successmsg').delay(1200).fadeOut();
 
         //google analytics
         /* ga("send", "event", "submit", current_username, "testA"); */
@@ -349,6 +360,10 @@ function inputTime(name,dayArray,start,end){
     
     sessionStorage.setItem(name + '-data',  JSON.stringify(data));
     //window.location.href = 'mySchedule.html';
+    var eventString=JSON.stringify(data);
+     ref.child('users').child(authData.uid).update({
+                events:eventString
+     });
 }
 
 function removeDuplicates(duplicatesArray){

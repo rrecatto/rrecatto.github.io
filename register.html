@@ -8,13 +8,18 @@
     <!-- Link Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
+
   </head>
   <body>
       <h1 style="text-align:center;">Register</h1>
       <div class="container">
           <form class="registerForm">
-            <label for="inputUserName">User Name:</label>
-          <input type="text" id="regName" class="form-control" placeholder="User Name" pattern="[A-Za-z].{1}" required autofocus>
+          <label for="inputUserName">Email:</label>
+          <input type="email" id="regEmail" class="form-control" placeholder="Email" prequired autofocus>
+          <br>
+          
+          <label for="inputUserName">User Name:</label>
+          <input type="text" id="regName" class="form-control" placeholder="User Name" pattern="[A-Za-z].{1}">
           <br>
 
           <p><strong>Note:</strong>User name should be more than one letter.(letters only)</p>
@@ -41,7 +46,7 @@
           
           
           
-          
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>     
     <script src="lib/jquery-1.12.1.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
     <script src="lib/handlebars-v4.0.5.js"></script>

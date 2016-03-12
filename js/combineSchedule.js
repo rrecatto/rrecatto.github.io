@@ -2,6 +2,8 @@
 var current_username = sessionStorage.getItem("currUser");
 var userJson = sessionStorage.getItem(current_username + '-data');
 var userData = JSON.parse(userJson);
+var ref = new Firebase("https://freeup.firebaseio.com/");
+var authData = ref.getAuth();
 $(document).ready(function() {
     //display friend list
     displayFriendList2();
@@ -47,6 +49,10 @@ function deleteFriend(btnID){
     console.log("userdata after:"); console.log(userData);
     var newJData = JSON.stringify(userData);
     sessionStorage.setItem(current_username + '-data' , newJData);
+
+    ref.child('users').child(authData.uid).update({
+         events:newJData
+     });
     displayFriendList2();
 }
 /*
@@ -104,14 +110,20 @@ function combineFunction() {
     else if(sessionStorage.getItem(friendUsername + '-data') != null){
         var friendJson = sessionStorage.getItem(friendUsername+"-data");
         var friendData = JSON.parse(friendJson);
-        //console.log(JSON.stringify(friendData));
+        console.log(JSON.stringify(friendData));
+
         userData[friendUsername] = friendData[friendUsername];
-        
+        console.log("userJson"+userJson);
         /* var friendData = friendData.substring(1,friendData.length-1);
         var newData = userData.substring(0, userData.length - 1) + ',' + friendData + '}'; */
         
         var newData = JSON.stringify(userData);
         sessionStorage.setItem(current_username + '-data' , newData);
+        console.log("new data" + newData);
+
+        ref.child('users').child(authData.uid).update({
+         events:newData
+        });
 
     } else {
         $('#error_notfound').slideDown();
